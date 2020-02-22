@@ -13,20 +13,17 @@ public class UserService {
     private IUserDao userDao;
 
     public User getUser(Long userId) throws Exception {
-        return null;
+        return userDao.getUser(userId);
     }
 
     public List<User> getUsers() throws Exception {
-        return null;
+        return userDao.getUsers();
     }
 
     public Integer insertUser(User user) throws Exception {
-        return null;
+        return userDao.insertUser(user);
     }
 
-    public Integer updateUser() throws Exception {
-        return null;
-    }
 
     public Integer deleteUser(Long userId) throws Exception {
         return null;
