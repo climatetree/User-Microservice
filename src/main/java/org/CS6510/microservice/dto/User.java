@@ -1,4 +1,4 @@
-package com.CS6510.microservice.model;
+package org.CS6510.microservice.dto;
 
 import java.util.Date;
 

@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8712fc21-606e-43ab-aa40-84895bf5c9f1" name="Default Changelist" comment="Merge branch 'develop' of https://github.com/climatetree/user-microservice into anda&#10;&#10;# Conflicts:&#10;#&#9;.gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/CS6510/microservice/MicroserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CS6510/microservice/MicroserviceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/CS6510/microservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CS6510/microservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/CS6510/microservice/dao/IUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CS6510/microservice/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/CS6510/microservice/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CS6510/microservice/dao/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/CS6510/microservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CS6510/microservice/dto/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/CS6510/microservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/CS6510/microservice/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/CS6510/microservice/MicroserviceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/CS6510/microservice/MicroserviceApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +53,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Errors" />
@@ -82,6 +96,7 @@
       <updated>1582407567083</updated>
       <workItem from="1582407569398" duration="4635000" />
       <workItem from="1582429929719" duration="1731000" />
+      <workItem from="1582449884285" duration="3078000" />
     </task>
     <servers />
   </component>
@@ -89,10 +104,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="223" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582449985074">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="223" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1582449985074" />
     <state x="533" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1582411375757">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="533" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1582411375757" />
+    <state x="498" y="217" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1582449977539">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="498" y="217" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.864@0.0.1536.864" timestamp="1582449977539" />
+    <state x="618" y="322" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1582450020977">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="618" y="322" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.864@0.0.1536.864" timestamp="1582450020977" />
     <state x="154" y="381" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582408421600">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -113,10 +140,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1582411523068" />
-    <state x="215" y="26" key="CommitChangelistDialog2" timestamp="1582429965684">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="229" y="0" key="CommitChangelistDialog2" timestamp="1582453169620">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="215" y="26" key="CommitChangelistDialog2/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582429965684" />
+    <state x="229" y="0" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1582453169620" />
     <state width="2518" height="304" key="GridCell.Tab.0.bottom" timestamp="1582436160533">
       <screen x="-2560" y="0" width="2560" height="1080" />
     </state>

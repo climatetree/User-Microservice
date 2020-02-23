@@ -1,12 +1,12 @@
-package com.CS6510.microservice.dao;
+package org.CS6510.microservice.dao;
 
-import com.CS6510.microservice.model.User;
+import org.CS6510.microservice.dto.User;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class UserDao implements IUserDao{
+public class UserDAOImpl implements UserDAO {
     @Override
     public User getUser(Long userId) {
         return null;

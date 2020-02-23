@@ -1,4 +1,4 @@
-package com.CS6510.microservice;
+package org.CS6510.microservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

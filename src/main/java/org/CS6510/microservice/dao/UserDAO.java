@@ -1,11 +1,10 @@
-package com.CS6510.microservice.dao;
+package org.CS6510.microservice.dao;
 
-import com.CS6510.microservice.model.User;
-import org.springframework.stereotype.Component;
+import org.CS6510.microservice.dto.User;
 
 import java.util.List;
 
-public interface IUserDao {
+public interface UserDAO {
     // CRUD
     // The return value of insert, update, delete should be the num of rows effected.
     // we might use mybatis or hibernate to generate this dao.
