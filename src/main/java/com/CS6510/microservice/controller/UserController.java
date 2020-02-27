@@ -23,10 +23,15 @@ public class UserController {
         return resultMap;
     }
 
-    @GetMapping("/")
+    @GetMapping("/name")
     public Map<String, Object> findUsersByName(@RequestParam(value = "name") String name) {
         System.out.println("findUsersByName");
         return null;
+    }
+
+    @GetMapping("/test1")
+    public String findUsersByName() {
+        return "hello world";
     }
 
     @DeleteMapping("/")
