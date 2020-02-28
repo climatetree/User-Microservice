@@ -426,6 +426,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.CS6510.microservice.dao" />
       <option name="MAIN_CLASS_NAME" value="com.CS6510.microservice.dao.UserDaoTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -472,6 +473,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.CS6510.microservice.service" />
       <option name="MAIN_CLASS_NAME" value="com.CS6510.microservice.service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
