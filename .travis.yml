@@ -5,7 +5,7 @@ install:
 services:
 - postgresql
 before_script:
-- psql -c 'create database POSTGRESQL;' -U postgres
+- psql -c 'create database user_microservice;' -U postgres
 addons:
   sonarcloud:
     organization: climatetree
