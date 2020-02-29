@@ -1,7 +1,7 @@
-package com.CS6510.microservice.service;
+package org.CS6510.microservice.service;
 
-import com.CS6510.microservice.dao.IUserDao;
-import com.CS6510.microservice.model.User;
+import org.CS6510.microservice.dao.UserDAO;
+import org.CS6510.microservice.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class UserService {
     @Autowired
-    private IUserDao userDao;
+    private UserDAO userDao;
 
     public User getUser(Long userId) throws Exception {
         return userDao.getUser(userId);
