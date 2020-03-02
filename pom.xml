@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.CS6510</groupId>
-	<artifactId>microservice</artifactId>
+	<groupId>com.climatetree</groupId>
+	<artifactId>user</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microservice</name>
-	<description>Demo project for Spring Boot</description>
+	<name>user-microservice</name>
+	<description>User Microservice</description>
 
 	<properties>
 		<java.version>1.8</java.version>
