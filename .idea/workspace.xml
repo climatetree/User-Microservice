@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2dcc05bb-db9b-4484-b33a-4226ed4f3de7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/climatetree/user/dao/UserDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/climatetree/user/dao/UserDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/climatetree/user/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/climatetree/user/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +166,21 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.MicroserviceApplication">
+    <configuration name="UserDaoTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.climatetree.user.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.climatetree.user.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.dao.UserDaoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
       <extension name="coverage">
@@ -177,22 +192,6 @@
       <option name="PACKAGE_NAME" value="com.CS6510.microservice.dao" />
       <option name="MAIN_CLASS_NAME" value="com.CS6510.microservice.dao.UserDaoTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDaoTest.testFindByRoleId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.CS6510.microservice.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.CS6510.microservice.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.CS6510.microservice.dao.UserDaoTest" />
-      <option name="METHOD_NAME" value="testFindByRoleId" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -228,18 +227,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.getUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="com.climatetree.user in microservice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.CS6510.microservice.service.*" />
+          <option name="PATTERN" value="com.climatetree.user.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.CS6510.microservice.service" />
-      <option name="MAIN_CLASS_NAME" value="com.CS6510.microservice.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="getUser" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.climatetree.user" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -262,20 +259,20 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.UserDaoTest" />
-      <item itemvalue="JUnit.UserDaoTest.testFindByRoleId" />
       <item itemvalue="JUnit.UserDaoTest.testInsertAndDelete" />
       <item itemvalue="JUnit.UserServiceTest" />
-      <item itemvalue="JUnit.UserServiceTest.getUser" />
       <item itemvalue="Spring Boot.MicroserviceApplication" />
       <item itemvalue="Spring Boot.MicroserviceApplication (1)" />
+      <item itemvalue="JUnit.UserDaoTest (1)" />
+      <item itemvalue="JUnit.com.climatetree.user in microservice" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.com.climatetree.user in microservice" />
+        <item itemvalue="JUnit.UserDaoTest (1)" />
         <item itemvalue="JUnit.UserDaoTest" />
         <item itemvalue="JUnit.UserDaoTest.testInsertAndDelete" />
         <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest.getUser" />
-        <item itemvalue="JUnit.UserDaoTest.testFindByRoleId" />
       </list>
     </recent_temporary>
   </component>
@@ -317,20 +314,9 @@
       <workItem from="1582758197762" duration="3051000" />
       <workItem from="1582761275082" duration="11055000" />
       <workItem from="1582827556264" duration="7852000" />
-      <workItem from="1583185065181" duration="2884000" />
+      <workItem from="1583185065181" duration="4098000" />
     </task>
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="UserDaoTest_testInsertAndDelete - 2020.02.27 at 14h 01m 09s.xml">
-      <configuration name="UserDaoTest.testInsertAndDelete" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserDaoTest - 2020.02.27 at 14h 02m 17s.xml">
-      <configuration name="UserDaoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserDaoTest - 2020.02.27 at 14h 52m 32s.xml">
-      <configuration name="UserDaoTest" configurationId="JUnit" />
-    </history-entry>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -396,67 +382,67 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="215" y="26" key="CommitChangelistDialog2/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582429965684" />
-    <state width="905" height="288" key="GridCell.Tab.0.bottom" timestamp="1583187674872">
+    <state width="905" height="455" key="GridCell.Tab.0.bottom" timestamp="1583189210153">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="288" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583187674872" />
+    <state width="905" height="455" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583189210153" />
     <state width="2518" height="304" key="GridCell.Tab.0.bottom/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160533" />
     <state width="1398" height="162" key="GridCell.Tab.0.bottom/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509524" />
     <state width="1398" height="162" key="GridCell.Tab.0.bottom/0.0.1440.900/-2560.23.2560.1057@0.0.1440.900" timestamp="1582758193529" />
     <state width="1398" height="162" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582779481936" />
     <state width="1398" height="304" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1582656407270" />
-    <state width="905" height="288" key="GridCell.Tab.0.center" timestamp="1583187674872">
+    <state width="905" height="455" key="GridCell.Tab.0.center" timestamp="1583189210153">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="288" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583187674872" />
+    <state width="905" height="455" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583189210153" />
     <state width="2518" height="304" key="GridCell.Tab.0.center/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160530" />
     <state width="1398" height="162" key="GridCell.Tab.0.center/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509522" />
     <state width="1398" height="162" key="GridCell.Tab.0.center/0.0.1440.900/-2560.23.2560.1057@0.0.1440.900" timestamp="1582758193528" />
     <state width="1398" height="162" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1582779481934" />
     <state width="1398" height="304" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1582656407269" />
-    <state width="905" height="288" key="GridCell.Tab.0.left" timestamp="1583187674871">
+    <state width="905" height="455" key="GridCell.Tab.0.left" timestamp="1583189210152">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="288" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583187674871" />
+    <state width="905" height="455" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583189210152" />
     <state width="2518" height="304" key="GridCell.Tab.0.left/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160528" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509521" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.0.1440.900/-2560.23.2560.1057@0.0.1440.900" timestamp="1582758193527" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1582779481934" />
     <state width="1398" height="304" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1582656407268" />
-    <state width="905" height="288" key="GridCell.Tab.0.right" timestamp="1583187674872">
+    <state width="905" height="455" key="GridCell.Tab.0.right" timestamp="1583189210153">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="288" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583187674872" />
+    <state width="905" height="455" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583189210153" />
     <state width="2518" height="304" key="GridCell.Tab.0.right/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160531" />
     <state width="1398" height="162" key="GridCell.Tab.0.right/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509523" />
     <state width="1398" height="162" key="GridCell.Tab.0.right/0.0.1440.900/-2560.23.2560.1057@0.0.1440.900" timestamp="1582758193528" />
     <state width="1398" height="162" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1582779481935" />
     <state width="1398" height="304" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1582656407270" />
-    <state width="905" height="288" key="GridCell.Tab.1.bottom" timestamp="1583187674873">
+    <state width="905" height="455" key="GridCell.Tab.1.bottom" timestamp="1583189210154">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="288" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583187674873" />
+    <state width="905" height="455" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583189210154" />
     <state width="2518" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582435035387" />
     <state width="1398" height="162" key="GridCell.Tab.1.bottom/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509527" />
     <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582778893103" />
-    <state width="905" height="288" key="GridCell.Tab.1.center" timestamp="1583187674872">
+    <state width="905" height="455" key="GridCell.Tab.1.center" timestamp="1583189210153">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="288" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1583187674872" />
+    <state width="905" height="455" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1583189210153" />
     <state width="2518" height="304" key="GridCell.Tab.1.center/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582435035386" />
     <state width="1398" height="162" key="GridCell.Tab.1.center/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509525" />
     <state width="1398" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1582778893101" />
-    <state width="905" height="288" key="GridCell.Tab.1.left" timestamp="1583187674872">
+    <state width="905" height="455" key="GridCell.Tab.1.left" timestamp="1583189210153">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="288" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1583187674872" />
+    <state width="905" height="455" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1583189210153" />
     <state width="2518" height="304" key="GridCell.Tab.1.left/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582435035385" />
     <state width="1398" height="162" key="GridCell.Tab.1.left/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509525" />
     <state width="1398" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1582778893101" />
-    <state width="905" height="288" key="GridCell.Tab.1.right" timestamp="1583187674873">
+    <state width="905" height="455" key="GridCell.Tab.1.right" timestamp="1583189210154">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="288" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1583187674873" />
+    <state width="905" height="455" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1583189210154" />
     <state width="2518" height="304" key="GridCell.Tab.1.right/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582435035386" />
     <state width="1398" height="162" key="GridCell.Tab.1.right/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509526" />
     <state width="1398" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1582778893102" />

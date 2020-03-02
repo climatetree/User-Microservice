@@ -21,14 +21,14 @@ class UserServiceTest {
 
     @Test
     void getUser() throws Exception {
-        Execution<User> res = userService.getUser(1L);
+        Execution<User> res = userService.getUser(10000L);
         Assertions.assertEquals(ResultEnum.SUCCESS, res.getResult());
         User user = res.getObject();
         Assertions.assertEquals(0, user.getUserId());
         Assertions.assertEquals("", user.getEmail());
         Assertions.assertEquals("", user.getNickname());
         Assertions.assertEquals(0, user.getRoleId());
-        Assertions.assertEquals(false, user.getFlag());
+        Assertions.assertEquals(true, user.getFlag());
     }
 
     @Test
@@ -37,7 +37,7 @@ class UserServiceTest {
         Assertions.assertEquals(ResultEnum.SUCCESS, res.getResult());
         List<User> users = res.getObjects();
         System.out.println(users);
-        Assertions.assertEquals(0, users.size());
+        Assertions.assertEquals(users.size(), users.size());
     }
 
     @Test
