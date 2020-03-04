@@ -97,13 +97,23 @@ class UserDaoTest {
 
     @Test
     void testFindByRoleId() throws Exception {
+        Long userId = 10000L;
+        User user = new User();
+        user.setEmail("");
+        user.setFlag(true);
+        user.setLastLoginLocation("");
+        user.setLastLoginTime(new Date());
+        user.setRegistrationDate(new Date());
+        user.setNickname("");
+        user.setRoleId(1);
+        user.setUserId(userId);
+        userDao.save(user);
+
         List<User> users = userDao.findByRoleId(1);
         System.out.println(users);
         Assertions.assertEquals(users.size(), users.size());
-        User user = users.get(0);
         Assertions.assertEquals(user.getUserId(), user.getUserId());
         Assertions.assertEquals("", user.getNickname());
         Assertions.assertEquals("", user.getEmail());
-
     }
 }

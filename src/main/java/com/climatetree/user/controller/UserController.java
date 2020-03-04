@@ -49,7 +49,6 @@ public class UserController {
     return resultMap;
   }
 
-
   /**
    * Find users by name map.
    *

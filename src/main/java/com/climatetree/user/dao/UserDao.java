@@ -25,6 +25,8 @@ public interface UserDao extends JpaRepository<User, Long> {
      */
     User findByUserId(Long userId);
 
+    User findByEmail(String email);
+
     /**
      * Save a new User Entry into database. Could be served as both iinsert and update.
      * @param user A User object.
@@ -46,6 +48,9 @@ public interface UserDao extends JpaRepository<User, Long> {
      * @return A list of user Objects
      */
     List<User> findByNickname(String name);
+
+
+
 
     /**
      * Get all users with certain roleId.

@@ -13,9 +13,12 @@ Object representation of the USER table from the database. Setters and getters +
 @Entity
 @Table(name = "user", schema = "public")
 public class User {
+
   @Id
-  @Column(name = "user_id", nullable = false)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "userid", nullable = false)
   private Long userId;
+
 
   @Column(name = "email")
   private String email;
@@ -38,10 +41,23 @@ public class User {
   @Column(name = "last_login_location")
   private String lastLoginLocation;
 
+public User(){}
 
-
-  public User() {
+  public User(User user) {
+    this.email=user.getEmail();
+    this.nickname=user.getNickname();
+    this.lastLoginTime=user.lastLoginTime;
+    this.roleId=user.roleId;
+    this.userId=user.userId;
+    this.registrationDate=user.registrationDate;
   }
+
+  public User (String email,String nickname) {
+    this.email=email;
+    this.nickname=nickname;
+  }
+
+
 
   public Long getUserId() {
     return userId;
