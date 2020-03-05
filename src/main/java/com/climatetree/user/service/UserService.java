@@ -17,6 +17,14 @@ public class UserService {
   @Autowired
   private UserDao userDao;
 
+
+  public UserService () {}
+
+  public UserService (UserDao dao) {
+    this.userDao = dao;
+  }
+
+
   /**
    * Gets user.
    *

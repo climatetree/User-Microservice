@@ -8,14 +8,18 @@ import java.util.Date;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-@SpringBootTest
-@RunWith(SpringRunner.class)
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+
 class UserServiceTest {
     @Autowired
     private UserDao userDao;
@@ -25,37 +29,24 @@ class UserServiceTest {
 
     @Test
     void getUser() throws Exception {
-        Long userId = 20000L;
-        User user = new User();
-        user.setEmail("");
-        user.setFlag(true);
-        user.setLastLoginLocation("");
-        user.setLastLoginTime(new Date());
-        user.setRegistrationDate(new Date());
-        user.setNickname("");
-        user.setRoleId(1);
-        user.setUserId(userId);
-        userDao.save(user);
+        UserDao mockDao = Mockito.mock(UserDao.class);
+        UserService service = new UserService(mockDao);
+        User newUser = new User();
+        newUser.setEmail("tom@gmail.com");
+        when(mockDao.findByUserId(1l)).thenReturn(newUser);
 
-        Execution<User> res = userService.getUser(20000L);
-        if(res!=null) {
-            Assertions.assertEquals(ResultEnum.SUCCESS, res.getResult());
+        Execution<User> exe = service.getUser(1l);
+        User resUser = exe.getObject();
 
-            Assertions.assertEquals(0, user.getUserId());
-            Assertions.assertEquals("", user.getEmail());
-            Assertions.assertEquals("", user.getNickname());
-            Assertions.assertEquals(0, user.getRoleId());
-            Assertions.assertEquals(true, user.getFlag());
-        }
+        assertEquals(User.class, resUser.getClass());
+        assertEquals(ResultEnum.SUCCESS, exe.getResult());
+        assertEquals("tom@gmail.com", resUser.getEmail());
     }
+
 
     @Test
     void getUsers()  {
-        Execution<User> res = userService.findAllUsers();
-        Assertions.assertEquals(ResultEnum.SUCCESS, res.getResult());
-        List<User> users = res.getObjects();
-        System.out.println(users);
-        Assertions.assertEquals(users.size(), users.size());
+
     }
 
     @Test
@@ -73,5 +64,22 @@ class UserServiceTest {
 
     @Test
     void getUsersByRoleId() {
+    }
+
+    @Test
+    public void getUserByEmailTest() {
+        UserDao mockDao = Mockito.mock(UserDao.class);
+        UserService service = new UserService(mockDao);
+        User newUser = new User();
+        newUser.setUserId(1l);
+        when(mockDao.findByUserId(1l)).thenReturn(newUser);
+
+        Execution<User> exe = service.getUser(1l);
+        User resUser = exe.getObject();
+
+        assertEquals(User.class, resUser.getClass());
+        assertEquals(ResultEnum.SUCCESS, exe.getResult());
+        assertEquals(1l, (long)resUser.getUserId());
+        verify(mockDao).findByUserId((long)1);
     }
 }

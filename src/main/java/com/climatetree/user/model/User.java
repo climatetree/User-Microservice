@@ -41,7 +41,7 @@ public class User {
   @Column(name = "last_login_location")
   private String lastLoginLocation;
 
-public User(){}
+  public User(){}
 
   public User(User user) {
     this.email=user.getEmail();
