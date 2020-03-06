@@ -340,7 +340,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583459291413" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583459353780" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/climatetree/user/model" />
@@ -570,18 +570,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserServiceTest_getUserRole - 2020.03.05 at 20h 36m 31s.xml">
-      <configuration name="UserServiceTest.getUserRole" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceTest_isUserFlagged - 2020.03.05 at 20h 37m 15s.xml">
-      <configuration name="UserServiceTest.isUserFlagged" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceTest_getLoginTime - 2020.03.05 at 20h 40m 16s.xml">
-      <configuration name="UserServiceTest.getLoginTime" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceTest_getLoginTime - 2020.03.05 at 20h 40m 41s.xml">
-      <configuration name="UserServiceTest.getLoginTime" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="UserServiceTest_getLastLoginTime - 2020.03.05 at 20h 41m 35s.xml">
       <configuration name="UserServiceTest.getLastLoginTime" configurationId="JUnit" />
     </history-entry>
@@ -599,6 +587,18 @@
     </history-entry>
     <history-entry file="UserDaoTest_findByUserId - 2020.03.05 at 20h 43m 50s.xml">
       <configuration name="UserDaoTest.findByUserId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDaoTest_findByUserId - 2020.03.05 at 20h 44m 41s.xml">
+      <configuration name="UserDaoTest.findByUserId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDaoTest_findByUserId - 2020.03.05 at 20h 47m 00s.xml">
+      <configuration name="UserDaoTest.findByUserId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDaoTest_testFindByName - 2020.03.05 at 20h 47m 07s.xml">
+      <configuration name="UserDaoTest.testFindByName" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest - 2020.03.05 at 20h 47m 15s.xml">
+      <configuration name="UserServiceTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
