@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2dcc05bb-db9b-4484-b33a-4226ed4f3de7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/climatetree/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/climatetree/user/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/climatetree/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/climatetree/user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/climatetree/user/dao/UserDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/climatetree/user/dao/UserDaoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/climatetree/user/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/climatetree/user/service/UserServiceTest.java" afterDir="false" />
     </list>
@@ -49,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/climatetree/user/dao/UserDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1282">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="554">
+              <caret line="57" column="74" selection-start-line="57" selection-start-column="74" selection-end-line="57" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,10 +55,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/dao/UserDao.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/climatetree/user/MicroserviceApplicationTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+            <state relative-caret-position="95">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -70,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/dto/Execution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="120">
               <caret line="9" column="24" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="24" />
             </state>
           </provider>
@@ -88,11 +84,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
+            <state relative-caret-position="240">
               <caret line="22" column="33" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="33" />
               <folding>
-                <element signature="e#492#493#0" expanded="true" />
                 <element signature="e#519#520#0" expanded="true" />
+                <element signature="e#547#548#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/climatetree/user/service/UserServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="2436">
+              <caret line="133" column="69" selection-start-line="133" selection-start-column="69" selection-end-line="133" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -119,14 +115,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+            <state relative-caret-position="585">
+              <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1350#1351#0" expanded="true" />
-                <element signature="e#1373#1374#0" expanded="true" />
-                <element signature="e#1413#1414#0" expanded="true" />
-                <element signature="e#1443#1444#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -181,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/application-local.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/climatetree/user/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/climatetree/user/model/User.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/climatetree/user/dao/UserDaoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/climatetree/user/service/UserServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/climatetree/user/dao/UserDaoTest.java" />
       </list>
     </option>
   </component>
@@ -238,24 +230,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="microservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="user-microservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="microservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="user-microservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="microservice" type="b2602c69:ProjectViewProjectNode" />
@@ -366,7 +340,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583372759752" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583459291413" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/climatetree/user/model" />
@@ -429,21 +403,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserDaoTest (1)">
-    <configuration name="UserDaoTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.climatetree.user.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.climatetree.user.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.dao.UserDaoTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserServiceTest">
     <configuration name="UserDaoTest.findByUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
       <extension name="coverage">
@@ -490,7 +450,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.getUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.getLastLoginTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
       <extension name="coverage">
         <pattern>
@@ -500,7 +460,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.climatetree.user.service" />
       <option name="MAIN_CLASS_NAME" value="com.climatetree.user.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="getUser" />
+      <option name="METHOD_NAME" value="getLastLoginTime" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.getLoginTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.climatetree.user.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.climatetree.user.service" />
+      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="getLoginTime" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -523,21 +499,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.UserDaoTest (1)" />
-      <item itemvalue="JUnit.UserDaoTest.testFindByName" />
       <item itemvalue="Spring Boot.MicroserviceApplication" />
       <item itemvalue="Spring Boot.MicroserviceApplication (1)" />
-      <item itemvalue="JUnit.UserDaoTest.findByUserId" />
-      <item itemvalue="JUnit.UserServiceTest.getUser" />
+      <item itemvalue="JUnit.UserServiceTest.getLoginTime" />
+      <item itemvalue="JUnit.UserServiceTest.getLastLoginTime" />
       <item itemvalue="JUnit.UserServiceTest" />
+      <item itemvalue="JUnit.UserDaoTest.findByUserId" />
+      <item itemvalue="JUnit.UserDaoTest.testFindByName" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserDaoTest (1)" />
         <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest.getUser" />
         <item itemvalue="JUnit.UserDaoTest.testFindByName" />
         <item itemvalue="JUnit.UserDaoTest.findByUserId" />
+        <item itemvalue="JUnit.UserServiceTest.getLastLoginTime" />
+        <item itemvalue="JUnit.UserServiceTest.getLoginTime" />
       </list>
     </recent_temporary>
   </component>
@@ -588,52 +564,53 @@
       <workItem from="1583185065181" duration="11255000" />
       <workItem from="1583257628331" duration="29139000" />
       <workItem from="1583339534056" duration="3929000" />
-      <workItem from="1583367479809" duration="5060000" />
+      <workItem from="1583367479809" duration="5428000" />
+      <workItem from="1583458121363" duration="1072000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserDaoTest_testFindByName - 2020.03.04 at 20h 42m 01s.xml">
-      <configuration name="UserDaoTest.testFindByName" configurationId="JUnit" />
+    <history-entry file="UserServiceTest_getUserRole - 2020.03.05 at 20h 36m 31s.xml">
+      <configuration name="UserServiceTest.getUserRole" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceTest - 2020.03.04 at 20h 42m 42s.xml">
+    <history-entry file="UserServiceTest_isUserFlagged - 2020.03.05 at 20h 37m 15s.xml">
+      <configuration name="UserServiceTest.isUserFlagged" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_getLoginTime - 2020.03.05 at 20h 40m 16s.xml">
+      <configuration name="UserServiceTest.getLoginTime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_getLoginTime - 2020.03.05 at 20h 40m 41s.xml">
+      <configuration name="UserServiceTest.getLoginTime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_getLastLoginTime - 2020.03.05 at 20h 41m 35s.xml">
+      <configuration name="UserServiceTest.getLastLoginTime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_getLastLoginTime - 2020.03.05 at 20h 41m 46s.xml">
+      <configuration name="UserServiceTest.getLastLoginTime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest - 2020.03.05 at 20h 41m 57s.xml">
       <configuration name="UserServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceTest_getUser - 2020.03.04 at 20h 42m 42s.xml">
-      <configuration name="UserServiceTest.getUser" configurationId="JUnit" />
+    <history-entry file="UserDaoTest_findByUserId - 2020.03.05 at 20h 42m 40s.xml">
+      <configuration name="UserDaoTest.findByUserId" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceTest_getUser - 2020.03.04 at 20h 44m 16s.xml">
-      <configuration name="UserServiceTest.getUser" configurationId="JUnit" />
+    <history-entry file="UserDaoTest_findByUserId - 2020.03.05 at 20h 42m 54s.xml">
+      <configuration name="UserDaoTest.findByUserId" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceTest_getUser - 2020.03.04 at 20h 44m 35s.xml">
-      <configuration name="UserServiceTest.getUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceTest_getUser - 2020.03.04 at 20h 45m 11s.xml">
-      <configuration name="UserServiceTest.getUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceTest_getUser - 2020.03.04 at 20h 45m 24s.xml">
-      <configuration name="UserServiceTest.getUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceTest_getUser - 2020.03.04 at 20h 45m 44s.xml">
-      <configuration name="UserServiceTest.getUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserServiceTest - 2020.03.04 at 20h 45m 53s.xml">
-      <configuration name="UserServiceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserDaoTest_(1) - 2020.03.04 at 20h 46m 02s.xml">
-      <configuration name="UserDaoTest (1)" configurationId="JUnit" />
+    <history-entry file="UserDaoTest_findByUserId - 2020.03.05 at 20h 43m 50s.xml">
+      <configuration name="UserDaoTest.findByUserId" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8989000" />
+    <option name="totallyTimeSpent" value="10429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8900415" visible="true" weight="0.24878837" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8879668" visible="true" weight="0.25282714" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Persistence" order="2" sideWeight="0.10995851" side_tool="true" visible="true" weight="0.24878837" />
+      <window_info id="Persistence" order="2" sideWeight="0.112033196" side_tool="true" visible="true" weight="0.25282714" />
       <window_info id="Designer" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Capture Tool" order="5" />
@@ -658,7 +635,6 @@
       <window_info anchor="bottom" id="ANTLR Preview" order="15" />
       <window_info anchor="bottom" id="Messages" order="16" weight="0.32876712" />
       <window_info anchor="bottom" id="Run Dashboard" order="17" weight="0.32876712" />
-      <window_info anchor="right" id="Coverage" sideWeight="0.5020747" side_tool="true" weight="0.24959612" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.4979253" weight="0.24959612" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -669,6 +645,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5020747" side_tool="true" weight="0.24959612" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -913,13 +890,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/climatetree/user/MicroserviceApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/MicroserviceApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -969,6 +939,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.2.4.RELEASE/spring-data-jpa-2.2.4.RELEASE.jar!/org/springframework/data/jpa/repository/JpaRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/dto/Execution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/enums/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="33" />
+          <folding>
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/enums/ResultEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/model/JwtResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -983,77 +1009,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/enums/ResultEnum.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/climatetree/user/MicroserviceApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/enums/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.2.4.RELEASE/spring-data-jpa-2.2.4.RELEASE.jar!/org/springframework/data/jpa/repository/JpaRepository.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/dto/Execution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="22" column="33" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="33" />
-          <folding>
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/climatetree/user/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1350#1351#0" expanded="true" />
-            <element signature="e#1373#1374#0" expanded="true" />
-            <element signature="e#1413#1414#0" expanded="true" />
-            <element signature="e#1443#1444#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="95">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/climatetree/user/service/UserServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="2436">
+          <caret line="133" column="69" selection-start-line="133" selection-start-column="69" selection-end-line="133" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/climatetree/user/dao/UserDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1282">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="554">
+          <caret line="57" column="74" selection-start-line="57" selection-start-column="74" selection-end-line="57" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

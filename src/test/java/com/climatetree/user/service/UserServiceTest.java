@@ -28,7 +28,7 @@ class UserServiceTest {
     private UserService userService;
 
     @Test
-    void getUser() throws Exception {
+    void getUserEmail() throws Exception {
         UserDao mockDao = Mockito.mock(UserDao.class);
         UserService service = new UserService(mockDao);
         User newUser = new User();
@@ -43,27 +43,95 @@ class UserServiceTest {
         assertEquals("tom@gmail.com", resUser.getEmail());
     }
 
+    @Test
+    void getUserId() throws Exception {
+        UserDao mockDao = Mockito.mock(UserDao.class);
+        UserService service = new UserService(mockDao);
+        User newUser = new User();
+        newUser.setUserId(101L);
+        when(mockDao.findByUserId(1l)).thenReturn(newUser);
+        Execution<User> exe = service.getUser(1l);
+        User resUser = exe.getObject();
+        assertEquals(User.class, resUser.getClass());
+        assertEquals(ResultEnum.SUCCESS, exe.getResult());
+        assertEquals(101, resUser.getUserId().intValue());
+    }
+
 
     @Test
-    void getUsers()  {
+    void getUserName() throws Exception {
+        UserDao mockDao = Mockito.mock(UserDao.class);
+        UserService service = new UserService(mockDao);
+        User newUser = new User();
+        newUser.setNickname("John");
+        when(mockDao.findByUserId(1l)).thenReturn(newUser);
 
+        Execution<User> exe = service.getUser(1l);
+        User resUser = exe.getObject();
+        assertEquals(User.class, resUser.getClass());
+        assertEquals(ResultEnum.SUCCESS, exe.getResult());
+        assertEquals("John", resUser.getNickname());
     }
 
     @Test
-    void insertUser() {
+    void getUserRole() throws Exception {
+        UserDao mockDao = Mockito.mock(UserDao.class);
+        UserService service = new UserService(mockDao);
+        User newUser = new User();
+        newUser.setRoleId(2);
+        when(mockDao.findByUserId(1l)).thenReturn(newUser);
 
+        Execution<User> exe = service.getUser(1l);
+        User resUser = exe.getObject();
+        assertEquals(User.class, resUser.getClass());
+        assertEquals(ResultEnum.SUCCESS, exe.getResult());
+        assertEquals(2, resUser.getRoleId().intValue());
+    }
+
+
+    @Test
+    void isUserFlagged() throws Exception {
+        UserDao mockDao = Mockito.mock(UserDao.class);
+        UserService service = new UserService(mockDao);
+        User newUser = new User();
+        newUser.setFlag(false);
+        when(mockDao.findByUserId(1l)).thenReturn(newUser);
+
+        Execution<User> exe = service.getUser(1l);
+        User resUser = exe.getObject();
+        assertEquals(User.class, resUser.getClass());
+        assertEquals(ResultEnum.SUCCESS, exe.getResult());
+        assertEquals(false, resUser.getFlag());
     }
 
     @Test
-    void deleteUser() {
+    void getRegistrationDate() throws Exception {
+        UserDao mockDao = Mockito.mock(UserDao.class);
+        UserService service = new UserService(mockDao);
+        User newUser = new User();
+        newUser.setRegistrationDate(new Date(2019/10/23));
+        when(mockDao.findByUserId(1l)).thenReturn(newUser);
+
+        Execution<User> exe = service.getUser(1l);
+        User resUser = exe.getObject();
+        assertEquals(User.class, resUser.getClass());
+        assertEquals(ResultEnum.SUCCESS, exe.getResult());
+        assertEquals(new Date(2019/10/23), resUser.getRegistrationDate());
     }
 
     @Test
-    void getUsersByName() {
-    }
+    void getLastLoginTime() throws Exception {
+        UserDao mockDao = Mockito.mock(UserDao.class);
+        UserService service = new UserService(mockDao);
+        User newUser = new User();
+        newUser.setLastLoginTime(new Date(2020/01/18));
+        when(mockDao.findByUserId(1l)).thenReturn(newUser);
 
-    @Test
-    void getUsersByRoleId() {
+        Execution<User> exe = service.getUser(1l);
+        User resUser = exe.getObject();
+        assertEquals(User.class, resUser.getClass());
+        assertEquals(ResultEnum.SUCCESS, exe.getResult());
+        assertEquals(new Date(2020/01/18), resUser.getLastLoginTime());
     }
 
     @Test

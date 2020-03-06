@@ -29,15 +29,18 @@ class UserDaoTest {
 
     @Test
     void findByUserId() throws Exception{
+        Date accountCreationDate = new Date(2018/02/20);
+        Date lastLoginDate = new Date(2019/12/24);
+
         mockDao = mock(UserDao.class);
         Long userId = 20000L;
         User user = new User();
-        user.setEmail("");
+        user.setEmail("tom@gmail.com");
         user.setFlag(true);
-        user.setLastLoginLocation("");
-        user.setLastLoginTime(new Date());
-        user.setRegistrationDate(new Date());
-        user.setNickname("yash");
+        user.setLastLoginLocation("London");
+        user.setLastLoginTime(lastLoginDate);
+        user.setRegistrationDate(accountCreationDate);
+        user.setNickname("john");
         user.setRoleId(1);
         user.setUserId(userId);
         System.out.println(user.getNickname());
@@ -46,11 +49,15 @@ class UserDaoTest {
         when(mockDao.findByUserId(20000L)).thenReturn(user);
         User testUser = mockDao.findByUserId(20000L);
         Assertions.assertEquals(20000L, testUser.getUserId());
-        Assertions.assertEquals("", testUser.getEmail());
+        Assertions.assertEquals("tom@gmail.com", testUser.getEmail());
         Assertions.assertEquals(true, testUser.getFlag());
-        Assertions.assertEquals("", testUser.getLastLoginLocation());
-        Assertions.assertEquals("yash", testUser.getNickname());
+        Assertions.assertEquals("London", testUser.getLastLoginLocation());
+        Assertions.assertEquals("john", testUser.getNickname());
         Assertions.assertEquals(1, testUser.getRoleId());
+        Assertions.assertEquals(accountCreationDate, testUser.getRegistrationDate());
+        Assertions.assertEquals(lastLoginDate, testUser.getLastLoginTime());
+
+
     }
 
 
