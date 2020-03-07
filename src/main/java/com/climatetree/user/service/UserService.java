@@ -37,9 +37,11 @@ public class UserService {
       User user = userDao.findByUserId(userId);
         if (user != null) {
             res = new Execution<>(ResultEnum.SUCCESS, user);
+        } else {
+          res = new Execution<>(ResultEnum.DATABASE_ERROR);
         }
     } catch (Exception e) {
-      res = new Execution<>(ResultEnum.DATABASE_ERROR);
+      res = new Execution<>(ResultEnum.INNER_ERROR);
     }
     return res;
   }
@@ -56,9 +58,11 @@ public class UserService {
       User user = userDao.findByEmail(email);
       if (user != null) {
         res = new Execution<>(ResultEnum.SUCCESS, user);
+      } else {
+        res = new Execution<>(ResultEnum.DATABASE_ERROR);
       }
     } catch (Exception e) {
-      res = new Execution<>(ResultEnum.DATABASE_ERROR);
+      res = new Execution<>(ResultEnum.INNER_ERROR);
     }
     return res;
   }
@@ -74,7 +78,7 @@ public class UserService {
       List<User> users = userDao.findAll();
       res = new Execution<>(ResultEnum.SUCCESS, users);
     } catch (Exception e) {
-      res = new Execution<>(ResultEnum.DATABASE_ERROR);
+      res = new Execution<>(ResultEnum.INNER_ERROR);
     }
     return res;
   }
@@ -91,7 +95,7 @@ public class UserService {
       userDao.save(user);
       res = new Execution<>(ResultEnum.SUCCESS, 1);
     } catch (Exception e) {
-      res = new Execution<>(ResultEnum.DATABASE_ERROR);
+      res = new Execution<>(ResultEnum.INNER_ERROR);
     }
     return res;
   }
@@ -109,7 +113,7 @@ public class UserService {
       userDao.deleteById(userId);
       res = new Execution<>(ResultEnum.SUCCESS, 1);
     } catch (Exception e) {
-      res = new Execution<>(ResultEnum.DATABASE_ERROR);
+      res = new Execution<>(ResultEnum.INNER_ERROR);
     }
     return res;
   }
@@ -126,7 +130,7 @@ public class UserService {
       List<User> users = userDao.findByNickname(name);
       res = new Execution<>(ResultEnum.SUCCESS, users);
     } catch (Exception e) {
-      res = new Execution<>(ResultEnum.DATABASE_ERROR);
+      res = new Execution<>(ResultEnum.INNER_ERROR);
     }
     return res;
   }
@@ -143,7 +147,7 @@ public class UserService {
       List<User> users = userDao.findByRoleId(roleId);
       res = new Execution<>(ResultEnum.SUCCESS, users);
     } catch (Exception e) {
-      res = new Execution<>(ResultEnum.DATABASE_ERROR);
+      res = new Execution<>(ResultEnum.INNER_ERROR);
     }
     return res;
   }
