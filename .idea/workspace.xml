@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2dcc05bb-db9b-4484-b33a-4226ed4f3de7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/climatetree/user/controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/microservice.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/climatetree/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/climatetree/user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/climatetree/user/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/climatetree/user/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/climatetree/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/climatetree/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/climatetree/user/dao/UserDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/climatetree/user/dao/UserDaoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +45,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>mock</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,10 +90,16 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583459474797" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583704486189" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/climatetree/user/model" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -136,82 +149,82 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest">
-    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.FakeUserControllerTest.findUserByEmail">
+    <configuration name="UserControllerTest.findUserByEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.climatetree.user.service.*" />
+          <option name="PATTERN" value="com.climatetree.user.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.climatetree.user.service" />
-      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.service.UserServiceTest" />
+      <option name="PACKAGE_NAME" value="com.climatetree.user.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="findUserByEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.findUserById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.climatetree.user.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.climatetree.user.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="findUserById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testCreateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.climatetree.user.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.climatetree.user.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testCreateUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testDeleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.climatetree.user.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.climatetree.user.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testDeleteUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tempTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="microservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.climatetree.user.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.climatetree.user.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.controller.tempTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.testDeleteUserFailed1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.climatetree.user.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.climatetree.user.service" />
-      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="testDeleteUserFailed1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.testGetUsersByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.climatetree.user.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.climatetree.user.service" />
-      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="testGetUsersByName" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.testGetUsersByNameFailed1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.climatetree.user.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.climatetree.user.service" />
-      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="testGetUsersByNameFailed1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.testGetUsersByRoleIdFailed1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="microservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.climatetree.user.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.climatetree.user.service" />
-      <option name="MAIN_CLASS_NAME" value="com.climatetree.user.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="testGetUsersByRoleIdFailed1" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -233,21 +246,21 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.tempTest" />
+      <item itemvalue="JUnit.FakeUserControllerTest.testCreateUser" />
       <item itemvalue="Spring Boot.MicroserviceApplication" />
       <item itemvalue="Spring Boot.MicroserviceApplication (1)" />
-      <item itemvalue="JUnit.UserServiceTest.testDeleteUserFailed1" />
-      <item itemvalue="JUnit.UserServiceTest.testGetUsersByName" />
-      <item itemvalue="JUnit.UserServiceTest.testGetUsersByNameFailed1" />
-      <item itemvalue="JUnit.UserServiceTest.testGetUsersByRoleIdFailed1" />
-      <item itemvalue="JUnit.UserServiceTest" />
+      <item itemvalue="JUnit.FakeUserControllerTest.testDeleteUser" />
+      <item itemvalue="JUnit.FakeUserControllerTest.findUserById" />
+      <item itemvalue="JUnit.FakeUserControllerTest.findUserByEmail" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest.testGetUsersByRoleIdFailed1" />
-        <item itemvalue="JUnit.UserServiceTest.testGetUsersByNameFailed1" />
-        <item itemvalue="JUnit.UserServiceTest.testGetUsersByName" />
-        <item itemvalue="JUnit.UserServiceTest.testDeleteUserFailed1" />
+        <item itemvalue="JUnit.FakeUserControllerTest.findUserByEmail" />
+        <item itemvalue="JUnit.FakeUserControllerTest.findUserById" />
+        <item itemvalue="JUnit.FakeUserControllerTest.testDeleteUser" />
+        <item itemvalue="JUnit.FakeUserControllerTest.testCreateUser" />
+        <item itemvalue="JUnit.tempTest" />
       </list>
     </recent_temporary>
   </component>
@@ -301,6 +314,12 @@
       <workItem from="1583367479809" duration="5428000" />
       <workItem from="1583458121363" duration="1328000" />
       <workItem from="1583527298525" duration="5101000" />
+      <workItem from="1583618964726" duration="3637000" />
+      <workItem from="1583689619133" duration="2945000" />
+      <workItem from="1583703867321" duration="706000" />
+      <workItem from="1583871739989" duration="1414000" />
+      <workItem from="1583879146768" duration="2120000" />
+      <workItem from="1583945323318" duration="2508000" />
     </task>
     <servers />
   </component>
@@ -335,12 +354,20 @@
     </state>
     <state x="274" y="44" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583190129078" />
     <state x="320" y="117" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1582657235583" />
+    <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1583880579373">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.800@0.0.1280.800" timestamp="1583880579373" />
     <state x="506" y="114" key="#com.intellij.ide.util.MemberChooser" timestamp="1583298103597">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="506" y="114" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1583298103597" />
     <state x="533" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582764070973" />
     <state x="533" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1582775540773" />
+    <state x="490" y="296" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1583879190759">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="490" y="296" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.800@0.0.1280.800" timestamp="1583879190759" />
     <state x="388" y="368" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath" timestamp="1582678749535">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -370,42 +397,50 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="215" y="26" key="CommitChangelistDialog2/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582429965684" />
-    <state width="1398" height="162" key="GridCell.Tab.0.bottom" timestamp="1583608812831">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1238" height="185" key="GridCell.Tab.0.bottom" timestamp="1583949776479">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1238" height="185" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1583949776479" />
     <state width="1169" height="299" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583303535904" />
     <state width="2518" height="304" key="GridCell.Tab.0.bottom/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160533" />
     <state width="1398" height="162" key="GridCell.Tab.0.bottom/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509524" />
     <state width="1398" height="162" key="GridCell.Tab.0.bottom/0.0.1440.900/-2560.23.2560.1057@0.0.1440.900" timestamp="1582758193529" />
     <state width="1398" height="162" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583608812831" />
+    <state width="1238" height="185" key="GridCell.Tab.0.bottom/0.23.1280.777@0.23.1280.777" timestamp="1583949583457" />
     <state width="1398" height="162" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1583608746158" />
-    <state width="1398" height="162" key="GridCell.Tab.0.center" timestamp="1583608812830">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1238" height="185" key="GridCell.Tab.0.center" timestamp="1583949776478">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1238" height="185" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1583949776478" />
     <state width="1169" height="299" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583303535903" />
     <state width="2518" height="304" key="GridCell.Tab.0.center/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160530" />
     <state width="1398" height="162" key="GridCell.Tab.0.center/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509522" />
     <state width="1398" height="162" key="GridCell.Tab.0.center/0.0.1440.900/-2560.23.2560.1057@0.0.1440.900" timestamp="1582758193528" />
     <state width="1398" height="162" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583608812830" />
+    <state width="1238" height="185" key="GridCell.Tab.0.center/0.23.1280.777@0.23.1280.777" timestamp="1583949583454" />
     <state width="1398" height="162" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1583608746157" />
-    <state width="1398" height="162" key="GridCell.Tab.0.left" timestamp="1583608812829">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1238" height="185" key="GridCell.Tab.0.left" timestamp="1583949776478">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1238" height="185" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1583949776478" />
     <state width="1169" height="299" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583303535903" />
     <state width="2518" height="304" key="GridCell.Tab.0.left/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160528" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509521" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.0.1440.900/-2560.23.2560.1057@0.0.1440.900" timestamp="1582758193527" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583608812829" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.0.1440.900@0.23.1440.810" timestamp="1583606684803" />
+    <state width="1238" height="185" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1583949583452" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1583608746157" />
-    <state width="1398" height="162" key="GridCell.Tab.0.right" timestamp="1583608812831">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1238" height="185" key="GridCell.Tab.0.right" timestamp="1583949776479">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state width="1238" height="185" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1583949776479" />
     <state width="1169" height="299" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583303535903" />
     <state width="2518" height="304" key="GridCell.Tab.0.right/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160531" />
     <state width="1398" height="162" key="GridCell.Tab.0.right/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509523" />
     <state width="1398" height="162" key="GridCell.Tab.0.right/0.0.1440.900/-2560.23.2560.1057@0.0.1440.900" timestamp="1582758193528" />
     <state width="1398" height="162" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583608812831" />
+    <state width="1238" height="185" key="GridCell.Tab.0.right/0.23.1280.777@0.23.1280.777" timestamp="1583949583454" />
     <state width="1398" height="162" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1583608746158" />
     <state width="1169" height="299" key="GridCell.Tab.1.bottom" timestamp="1583303535904">
       <screen x="0" y="0" width="1366" height="728" />

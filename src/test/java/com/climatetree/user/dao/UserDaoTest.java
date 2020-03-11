@@ -31,7 +31,6 @@ class UserDaoTest {
     void findByUserId() throws Exception{
         Date accountCreationDate = new Date(2018/02/20);
         Date lastLoginDate = new Date(2019/12/24);
-
         mockDao = mock(UserDao.class);
         Long userId = 20000L;
         User user = new User();
@@ -56,8 +55,6 @@ class UserDaoTest {
         Assertions.assertEquals(1, testUser.getRoleId());
         Assertions.assertEquals(accountCreationDate, testUser.getRegistrationDate());
         Assertions.assertEquals(lastLoginDate, testUser.getLastLoginTime());
-
-
     }
 
 

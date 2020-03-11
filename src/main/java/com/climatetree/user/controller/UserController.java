@@ -29,6 +29,12 @@ public class UserController {
   @Autowired
   private UserService userService;
 
+  public UserController() {}
+
+  public UserController(UserService service) {
+    this.userService =  service;
+  }
+
   /**
    * Find all users map.
    *
@@ -140,3 +146,4 @@ public class UserController {
     return null;
   }
 }
+
