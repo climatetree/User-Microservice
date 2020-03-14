@@ -3,6 +3,7 @@ package com.climatetree.user.controller;
 import com.climatetree.user.dto.Execution;
 import com.climatetree.user.enums.Constants;
 import com.climatetree.user.enums.ResultEnum;
+import com.climatetree.user.exception.InternalException;
 import com.climatetree.user.model.User;
 import com.climatetree.user.service.UserService;
 
@@ -46,7 +47,7 @@ public class UserControllerTest {
   }
 
   @Test
-  public void testCreateUser() {
+  public void testCreateUser() throws InternalException {
     // setup
     UserService mockService = mock(UserService.class);
     UserController controller = new UserController(mockService);
@@ -65,7 +66,7 @@ public class UserControllerTest {
   }
 
   @Test
-  public void testDeleteUser() {
+  public void testDeleteUser() throws InternalException {
     // setup
     UserService mockService = mock(UserService.class);
     UserController controller = new UserController(mockService);
@@ -93,7 +94,7 @@ public class UserControllerTest {
   }
 
   @Test
-  public void findUserById() {
+  public void findUserById() throws InternalException {
     // setup
     UserService mockService = mock(UserService.class);
     UserController controller = new UserController(mockService);
@@ -122,7 +123,7 @@ public class UserControllerTest {
   }
 
   @Test
-  public void findUserByEmail() {
+  public void findUserByEmail() throws InternalException {
     // setup
     UserService mockService = mock(UserService.class);
     UserController controller = new UserController(mockService);

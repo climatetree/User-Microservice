@@ -13,7 +13,8 @@ public enum Constants {
   USERID("userId"),
   ROLE("role"),
   NICKNAME("nickName"),
-  ISSUER("Climate Tree")
+  ISSUER("Climate Tree"),
+
   ;
 
  private final String statusCode;
