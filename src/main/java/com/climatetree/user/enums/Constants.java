@@ -21,6 +21,8 @@ public enum Constants {
     this.statusCode = statusCode;
   }
 
+
+
   public String getStatusCode() {
     return this.statusCode;
   }
