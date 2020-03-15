@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MicroserviceApplication {
 
 	public static void main(String[] args) {
-		System.out.println("In class Mian");
+		System.out.println("In class Main");
 			SpringApplication.run(MicroserviceApplication.class, args);
 	}
 
