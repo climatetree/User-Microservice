@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    <list default="true" id="8712fc21-606e-43ab-aa40-84895bf5c9f1" name="Default Changelist" comment="Merge branch 'develop' of https://github.com/climatetree/user-microservice into anda&#10;&#10;# Conflicts:&#10;#&#9;.gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     <list default="true" id="2dcc05bb-db9b-4484-b33a-4226ed4f3de7" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/src/test/java/com/climatetree/user/config/JwtTokenUtilTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -8,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/climatetree/user/config/JwtTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/climatetree/user/config/JwtTokenUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-local.properties" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,6 +173,18 @@
     </option>
   </component>
   <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
     <option name="configurationTypes">
       <set>
         <option value="SpringBootApplicationConfigurationType" />
@@ -325,6 +341,7 @@
       <updated>1582407567083</updated>
       <workItem from="1582407569398" duration="4635000" />
       <workItem from="1582429929719" duration="1731000" />
+      <workItem from="1583986267677" duration="427000" />
       <workItem from="1582678654476" duration="6352000" />
       <workItem from="1582758197762" duration="3051000" />
       <workItem from="1582761275082" duration="11055000" />
@@ -347,6 +364,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="236" y="88" key="#Assign_Data_Sources" timestamp="1582757145364">
