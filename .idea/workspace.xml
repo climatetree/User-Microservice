@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2dcc05bb-db9b-4484-b33a-4226ed4f3de7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/climatetree/user/controller/HelloWorldController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/climatetree/user/enums/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/climatetree/user/enums/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/climatetree/user/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/climatetree/user/controller/UserControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +136,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserControllerTest">
+  <component name="RunManager" selected="JUnit.UserControllerTest.findUserByEmail">
     <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
       <extension name="coverage">
@@ -236,18 +234,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.UserControllerTest" />
-      <item itemvalue="Spring Boot.MicroserviceApplication" />
-      <item itemvalue="Spring Boot.MicroserviceApplication (1)" />
       <item itemvalue="JUnit.UserControllerTest.testCreateUserTwo" />
       <item itemvalue="JUnit.UserControllerTest.findUserByEmail" />
       <item itemvalue="JUnit.UserControllerTest.findUserById" />
       <item itemvalue="JUnit.UserControllerTest.testGetUsers" />
+      <item itemvalue="Spring Boot.MicroserviceApplication" />
+      <item itemvalue="Spring Boot.MicroserviceApplication (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserControllerTest.findUserByEmail" />
         <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="JUnit.UserControllerTest.testGetUsers" />
-        <item itemvalue="JUnit.UserControllerTest.findUserByEmail" />
         <item itemvalue="JUnit.UserControllerTest.findUserById" />
         <item itemvalue="JUnit.UserControllerTest.testCreateUserTwo" />
       </list>
@@ -308,7 +306,8 @@
       <workItem from="1584123431254" duration="576000" />
       <workItem from="1584215447244" duration="278000" />
       <workItem from="1584215754139" duration="1366000" />
-      <workItem from="1584301413077" duration="8089000" />
+      <workItem from="1584301413077" duration="9388000" />
+      <workItem from="1584369616128" duration="628000" />
     </task>
     <servers />
   </component>
@@ -343,10 +342,10 @@
     </state>
     <state x="274" y="44" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583190129078" />
     <state x="320" y="117" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1582657235583" />
-    <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1584308103062">
+    <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1584369797186">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.800@0.0.1280.800" timestamp="1584308103062" />
+    <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.800@0.0.1280.800" timestamp="1584369797186" />
     <state x="506" y="114" key="#com.intellij.ide.util.MemberChooser" timestamp="1583298103597">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -387,10 +386,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="215" y="26" key="CommitChangelistDialog2/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582429965684" />
-    <state width="1238" height="160" key="GridCell.Tab.0.bottom" timestamp="1584311797524">
+    <state width="1238" height="195" key="GridCell.Tab.0.bottom" timestamp="1584370031963">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="160" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1584311797524" />
+    <state width="1238" height="195" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1584370031963" />
     <state width="1169" height="299" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583303535904" />
     <state width="2518" height="304" key="GridCell.Tab.0.bottom/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160533" />
     <state width="1398" height="162" key="GridCell.Tab.0.bottom/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509524" />
@@ -398,10 +397,10 @@
     <state width="1398" height="162" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583608812831" />
     <state width="1238" height="160" key="GridCell.Tab.0.bottom/0.23.1280.777@0.23.1280.777" timestamp="1584311504425" />
     <state width="1398" height="162" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1583608746158" />
-    <state width="1238" height="160" key="GridCell.Tab.0.center" timestamp="1584311797522">
+    <state width="1238" height="195" key="GridCell.Tab.0.center" timestamp="1584370031962">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="160" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1584311797522" />
+    <state width="1238" height="195" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1584370031962" />
     <state width="1169" height="299" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583303535903" />
     <state width="2518" height="304" key="GridCell.Tab.0.center/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160530" />
     <state width="1398" height="162" key="GridCell.Tab.0.center/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509522" />
@@ -409,10 +408,10 @@
     <state width="1398" height="162" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583608812830" />
     <state width="1238" height="160" key="GridCell.Tab.0.center/0.23.1280.777@0.23.1280.777" timestamp="1584311504424" />
     <state width="1398" height="162" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1583608746157" />
-    <state width="1238" height="160" key="GridCell.Tab.0.left" timestamp="1584311797522">
+    <state width="1238" height="195" key="GridCell.Tab.0.left" timestamp="1584370031961">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="160" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1584311797522" />
+    <state width="1238" height="195" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1584370031961" />
     <state width="1169" height="299" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583303535903" />
     <state width="2518" height="304" key="GridCell.Tab.0.left/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160528" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509521" />
@@ -421,10 +420,10 @@
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.0.1440.900@0.23.1440.810" timestamp="1583606684803" />
     <state width="1238" height="160" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1584311504423" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1583608746157" />
-    <state width="1238" height="160" key="GridCell.Tab.0.right" timestamp="1584311797523">
+    <state width="1238" height="195" key="GridCell.Tab.0.right" timestamp="1584370031962">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="160" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1584311797523" />
+    <state width="1238" height="195" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1584370031962" />
     <state width="1169" height="299" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583303535903" />
     <state width="2518" height="304" key="GridCell.Tab.0.right/0.0.1440.900/-2560.0.2560.1080@-2560.0.2560.1080" timestamp="1582436160531" />
     <state width="1398" height="162" key="GridCell.Tab.0.right/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582766509523" />
@@ -519,6 +518,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="dock-window-1/0.0.1440.900@0.0.1440.900" timestamp="1582778887067" />
+    <state x="395" y="120" key="git4idea.branch.GitSmartOperationDialog" timestamp="1584370407508">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="395" y="120" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.800@0.0.1280.800" timestamp="1584370407508" />
     <state x="505" y="172" width="672" height="456" key="run.anything.popup" timestamp="1583276741496">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -562,7 +565,7 @@
     <SUITE FILE_PATH="coverage/microservice$UserControllerTest_findUserById.ic" NAME="UserControllerTest.findUserById Coverage Results" MODIFIED="1584311504396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.climatetree.user.controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/microservice$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1584311797493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/microservice$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1584369802500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.climatetree.user.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/microservice$UserControllerTest_testCreateUserTwo.ic" NAME="UserControllerTest.testCreateUserTwo Coverage Results" MODIFIED="1584311403212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

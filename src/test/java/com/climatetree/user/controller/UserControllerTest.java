@@ -38,47 +38,11 @@ public class UserControllerTest {
 
   private MockMvc mockMvc;
 
-  @InjectMocks
-  private HelloWorldController userController;
 
-
-  @Before
-  public void setUp() throws Exception{
-    mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
-
-  }
-
-  @Test
-  public void testOne() throws Exception{
-    mockMvc.perform(MockMvcRequestBuilders.get("/hello")).andExpect(MockMvcResultMatchers.status().isOk()).andExpect(content().string("Hello World"));
-  }
 
   // does not cover anything but to keep we may have to use something similar later
   @Test
   public void testCreateUser() {
-    UserController controller = mock(UserController.class);
-    User user = new User();
-    user.setEmail("abc");
-    user.setUserId(43L);
-
-    Execution<User> exe = new Execution<>();
-    exe.setObject(user);
-    exe.setResult(ResultEnum.SUCCESS);
-
-    Map<String, Object> result = controller.createUser(user);
-
-    doReturn(result).when(controller).createUser(user);
-
-    verify(controller).createUser(user);
-
-    assertEquals("success",  result.get("status"));
-
-    assertEquals(User.class, exe.getObject().getClass());
-  }
-
-  // does not cover anything but to keep we may have to use something similar later
-  @Test
-  public void testCreateUserTwo() {
     UserController controller = mock(UserController.class);
     User user = new User();
     user.setEmail("abc");
@@ -112,7 +76,7 @@ public class UserControllerTest {
 
 
   @Test
-  public void findUserById() {
+  public void testFindUserByName() {
     // setup
     UserService mockService = mock(UserService.class);
     UserController controller = new UserController(mockService);
@@ -141,7 +105,7 @@ public class UserControllerTest {
   }
 
   @Test
-  public void findUserByEmail() {
+  public void testFindUserById() {
     // setup
     UserService mockService = mock(UserService.class);
     UserController controller = new UserController(mockService);
@@ -167,6 +131,39 @@ public class UserControllerTest {
     when(mockService.getUsersByRoleId(1)).thenReturn(exe);
     Map<String, Object> resTwo = controller.getUsersByRoleId(1);
     verify(mockService).getUsersByRoleId(1);
+    assertEquals(ResultEnum.SUCCESS,  resTwo.get(Constants.SUCCESS.getStatusCode()));
+    assertEquals(User.class, exe.getObject().getClass());
+  }
+
+
+
+  @Test
+  public void findUserByEmail() {
+    // setup
+    UserService mockService = mock(UserService.class);
+    UserController controller = new UserController(mockService);
+    User user = new User();
+    user.setEmail("abc");
+    user.setNickname("john");
+    user.setEmail("john@gmail.com");
+    user.setUserId(33L);
+    user.setRoleId(1);
+
+    Execution<User> exe = new Execution<>();
+    exe.setObject(user);
+
+    exe.setResult(ResultEnum.SUCCESS);
+    when(mockService.insertUser(user)).thenReturn(exe);
+    Map<String, Object> res = controller.createUser(user);
+
+    // test
+    verify(mockService).insertUser(user);
+    assertEquals(ResultEnum.SUCCESS,  res.get(Constants.SUCCESS.getStatusCode()));
+    assertEquals(User.class, exe.getObject().getClass());
+
+    when(mockService.getUser(33L)).thenReturn(exe);
+    Map<String, Object> resTwo = controller.getUsers();
+    verify(mockService).findAllUsers();
     assertEquals(ResultEnum.SUCCESS,  resTwo.get(Constants.SUCCESS.getStatusCode()));
     assertEquals(User.class, exe.getObject().getClass());
   }
