@@ -114,6 +114,23 @@ public class UserController {
     }
 
     /**
+     * find all users that has been flagged (true) --> to moderate
+     *
+     * @return a list of user that has been been flagged
+     */
+    @GetMapping("/flagged_users")
+    public Map<String, Object> getFlaggedUsers() throws InternalException {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            Execution<User> res = userService.getFlaggedUsers();
+            resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
+        } catch (Exception e) {
+            throw new InternalException(e.getMessage());
+        }
+        return resultMap;
+    }
+
+    /**
      * delete a user
      *
      * @param userId the user id

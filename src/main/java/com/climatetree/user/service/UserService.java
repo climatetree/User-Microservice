@@ -151,4 +151,19 @@ public class UserService {
     }
     return res;
   }
+
+  /**
+   * Get all users with a TRUE flag
+   * @return a lists of flagged users
+   */
+  public Execution<User> getFlaggedUsers() {
+    Execution<User> res;
+    try {
+      List<User> users = userDao.findByFlagTrue();
+      res = new Execution<>(ResultEnum.SUCCESS, users);
+    } catch (Exception e) {
+      res = new Execution<>(ResultEnum.INNER_ERROR);
+    }
+    return res;
+  }
 }
