@@ -6,6 +6,7 @@ import com.climatetree.user.model.JwtRequest;
 import com.climatetree.user.model.JwtResponse;
 import com.climatetree.user.model.User;
 import com.climatetree.user.service.JwtUserDetailsService;
+import java.io.UnsupportedEncodingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,8 +29,9 @@ public class JwtAuthenticationController {
   @Autowired
   private JwtUserDetailsService userDetailsService;
 
-  @RequestMapping(value = "/register", method = RequestMethod.POST)
-  public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) {
+  @RequestMapping(value = "/login", method = RequestMethod.POST)
+  public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
+      throws UnsupportedEncodingException {
     final User userDetails = userDetailsService
         .loadUserByUsername(authenticationRequest.getUsername(),authenticationRequest.getEmail());
     final String token = jwtTokenUtil.generateToken(userDetails);

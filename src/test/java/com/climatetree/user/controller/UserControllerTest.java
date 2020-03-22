@@ -1,22 +1,18 @@
 package com.climatetree.user.controller;
 
-import com.climatetree.user.dao.UserDao;
 import com.climatetree.user.dto.Execution;
 import com.climatetree.user.enums.Constants;
 import com.climatetree.user.enums.ResultEnum;
+import com.climatetree.user.exception.InternalException;
 import com.climatetree.user.model.User;
 import com.climatetree.user.service.UserService;
-import org.apache.tomcat.util.http.parser.MediaType;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -24,13 +20,14 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import sun.jvm.hotspot.HelloWorld;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
-
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -44,6 +41,7 @@ public class UserControllerTest {
   @Test
   public void testCreateUser() {
     UserController controller = mock(UserController.class);
+
     User user = new User();
     user.setEmail("abc");
     user.setUserId(43L);
@@ -71,12 +69,14 @@ public class UserControllerTest {
     assertEquals("success",  result.get("username"));
     assertEquals("success",  result.get("role"));
 
+
     assertEquals(User.class, exe.getObject().getClass());
   }
 
 
   @Test
   public void testFindUserByName() {
+
     // setup
     UserService mockService = mock(UserService.class);
     UserController controller = new UserController(mockService);
@@ -94,18 +94,20 @@ public class UserControllerTest {
 
     // test
     verify(mockService).insertUser(user);
-    assertEquals(ResultEnum.SUCCESS,  res.get(Constants.SUCCESS.getStatusCode()));
+    assertEquals(ResultEnum.SUCCESS, res.get(Constants.SUCCESS.getStatusCode()));
     assertEquals(User.class, exe.getObject().getClass());
 
     when(mockService.getUsersByName("john")).thenReturn(exe);
     Map<String, Object> resTwo = controller.getUsersByName("john");
     verify(mockService).getUsersByName("john");
     assertEquals(ResultEnum.SUCCESS,  resTwo.get(Constants.SUCCESS.getStatusCode()));
+
     assertEquals(User.class, exe.getObject().getClass());
   }
 
   @Test
   public void testFindUserById() {
+
     // setup
     UserService mockService = mock(UserService.class);
     UserController controller = new UserController(mockService);
@@ -125,20 +127,22 @@ public class UserControllerTest {
 
     // test
     verify(mockService).insertUser(user);
-    assertEquals(ResultEnum.SUCCESS,  res.get(Constants.SUCCESS.getStatusCode()));
+    assertEquals(ResultEnum.SUCCESS, res.get(Constants.SUCCESS.getStatusCode()));
     assertEquals(User.class, exe.getObject().getClass());
+
 
     when(mockService.getUsersByRoleId(1)).thenReturn(exe);
     Map<String, Object> resTwo = controller.getUsersByRoleId(1);
     verify(mockService).getUsersByRoleId(1);
     assertEquals(ResultEnum.SUCCESS,  resTwo.get(Constants.SUCCESS.getStatusCode()));
+
     assertEquals(User.class, exe.getObject().getClass());
   }
 
 
 
   @Test
-  public void findUserByEmail() {
+  public void findUserByEmail() throws InternalException {
     // setup
     UserService mockService = mock(UserService.class);
     UserController controller = new UserController(mockService);
@@ -158,13 +162,14 @@ public class UserControllerTest {
 
     // test
     verify(mockService).insertUser(user);
-    assertEquals(ResultEnum.SUCCESS,  res.get(Constants.SUCCESS.getStatusCode()));
+    assertEquals(ResultEnum.SUCCESS, res.get(Constants.SUCCESS.getStatusCode()));
     assertEquals(User.class, exe.getObject().getClass());
 
     when(mockService.getUser(33L)).thenReturn(exe);
     Map<String, Object> resTwo = controller.getUsers();
     verify(mockService).findAllUsers();
     assertEquals(ResultEnum.SUCCESS,  resTwo.get(Constants.SUCCESS.getStatusCode()));
+
     assertEquals(User.class, exe.getObject().getClass());
   }
 }

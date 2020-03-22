@@ -1,11 +1,14 @@
 package com.climatetree.user.model;
 
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /*
 Object representation of the USER table from the database. Setters and getters + constructors.
@@ -41,22 +44,22 @@ public class User {
   @Column(name = "last_login_location")
   private String lastLoginLocation;
 
-  public User(){}
+  public User() {
+  }
 
   public User(User user) {
-    this.email=user.getEmail();
-    this.nickname=user.getNickname();
-    this.lastLoginTime=user.lastLoginTime;
-    this.roleId=user.roleId;
-    this.userId=user.userId;
-    this.registrationDate=user.registrationDate;
+    this.email = user.getEmail();
+    this.nickname = user.getNickname();
+    this.lastLoginTime = user.lastLoginTime;
+    this.roleId = user.roleId;
+    this.userId = user.userId;
+    this.registrationDate = user.registrationDate;
   }
 
-  public User (String email,String nickname) {
-    this.email=email;
-    this.nickname=nickname;
+  public User(String email, String nickname) {
+    this.email = email;
+    this.nickname = nickname;
   }
-
 
 
   public Long getUserId() {

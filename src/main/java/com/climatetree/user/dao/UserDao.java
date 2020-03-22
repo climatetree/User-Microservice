@@ -28,7 +28,7 @@ public interface UserDao extends JpaRepository<User, Long> {
     User findByEmail(String email);
 
     /**
-     * Save a new User Entry into database. Could be served as both iinsert and update.
+     * Save a new User Entry into database. Could be served as both insert and update.
      * @param user A User object.
      * @return A User object.
      */
@@ -50,7 +50,7 @@ public interface UserDao extends JpaRepository<User, Long> {
     List<User> findByNickname(String name);
 
 
-
+    List<User> findByFlagTrue();
 
     /**
      * Get all users with certain roleId.
@@ -59,4 +59,5 @@ public interface UserDao extends JpaRepository<User, Long> {
      * @return A list of user Objects
      */
     List<User> findByRoleId(Integer roleId);
+
 }

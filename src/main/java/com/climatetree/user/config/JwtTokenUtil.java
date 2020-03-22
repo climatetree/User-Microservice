@@ -5,66 +5,80 @@ import com.climatetree.user.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class JwtTokenUtil implements Serializable {
 
-  public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+    public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
 
-  @Value("climatetree")
-  private String secret;
+    @Value("climatetree")
+    private String secret;
 
-  //retrieve username from jwt token
-  public String getUsernameFromToken(String token) {
-    return getClaimFromToken(token, Claims::getSubject);
-  }
+    //retrieve username from jwt token
+    public String getUsernameFromToken(String token) throws UnsupportedEncodingException {
+        return getClaimFromToken(token, Claims::getSubject);
+    }
 
-  //retrieve expiration date from jwt token
-  public Date getExpirationDateFromToken(String token) {
-    return getClaimFromToken(token, Claims::getExpiration);
-  }
+    //retrieve expiration date from jwt token
+    public Date getExpirationDateFromToken(String token) throws UnsupportedEncodingException {
+        return getClaimFromToken(token, Claims::getExpiration);
+    }
 
-  public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
-    final Claims claims = getAllClaimsFromToken(token);
-    return claimsResolver.apply(claims);
-  }
-  //for retrieveing any information from token we will need the secret key
-  private Claims getAllClaimsFromToken(String token) {
-    return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-  }
+    public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) throws UnsupportedEncodingException {
+        final Claims claims = getAllClaimsFromToken(token);
+        return claimsResolver.apply(claims);
+    }
 
-  //check if the token has expired
-  private Boolean isTokenExpired(String token) {
-    final Date expiration = getExpirationDateFromToken(token);
-    return expiration.before(new Date());
-  }
+    //for retrieveing any information from token we will need the secret key
+    private Claims getAllClaimsFromToken(String token) throws UnsupportedEncodingException {
+        return Jwts.parser().setSigningKey(secret.getBytes(StandardCharsets.UTF_8)).parseClaimsJws(token).getBody();
+    }
 
-  //generate token for user
-  public String generateToken(User userDetails) {
-    Map<String, Object> claims = new HashMap<>();
-    claims.put(Constants.EMAIL.getStatusCode(),userDetails.getEmail());
-    claims.put(Constants.USERID.getStatusCode(),userDetails.getUserId());
-    claims.put(Constants.ROLE.getStatusCode(),userDetails.getRoleId());
-    claims.put(Constants.NICKNAME.getStatusCode(),userDetails.getNickname());
-    return doGenerateToken(claims, userDetails.getNickname());
-  }
+    //check if the token has expired
+    private Boolean isTokenExpired(String token) throws UnsupportedEncodingException {
+        final Date expiration = getExpirationDateFromToken(token);
+        return expiration.before(new Date());
+    }
 
-  private String doGenerateToken(Map<String, Object> claims, String subject) {
-    return Jwts.builder().setClaims(claims).setSubject(subject).setIssuer(Constants.ISSUER.getStatusCode()).setId(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-        .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
-        .signWith(SignatureAlgorithm.HS512, secret).compact();
-  }
+    //generate token for user
+    public String generateToken(User userDetails) throws UnsupportedEncodingException {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put(Constants.EMAIL.getStatusCode(), userDetails.getEmail());
+        claims.put(Constants.USERID.getStatusCode(), userDetails.getUserId());
+        claims.put(Constants.ROLE.getStatusCode(), userDetails.getRoleId());
+        claims.put(Constants.NICKNAME.getStatusCode(), userDetails.getNickname());
+        return doGenerateToken(claims, userDetails.getNickname());
+    }
 
-  //validate token
-  public Boolean validateToken(String token, User userDetails) {
-    final String username = getUsernameFromToken(token);
-    return (username.equals(userDetails.getNickname()) && !isTokenExpired(token));
-  }
+    private String doGenerateToken(Map<String, Object> claims, String subject)
+            throws UnsupportedEncodingException {
+        long issueTime = new Date().getTime();
+        long expTime = issueTime + JWT_TOKEN_VALIDITY;
+        return
+                Jwts.builder()
+                        .setSubject(subject)
+                        .setIssuedAt(Date.from(Instant.ofEpochSecond(issueTime)))
+                        .setExpiration(Date.from(Instant.ofEpochSecond(expTime))).addClaims(claims)
+                        .signWith(SignatureAlgorithm.HS256, secret.getBytes(StandardCharsets.UTF_8))
+                        .compact();
+
+    }
+
+    //validate token
+    public Boolean validateToken(String token, User userDetails) throws UnsupportedEncodingException {
+        final String username = getUsernameFromToken(token);
+        return (username.equals(userDetails.getNickname()) && !isTokenExpired(token));
+    }
 }

@@ -2,20 +2,16 @@ package com.climatetree.user.controller;
 
 import com.climatetree.user.dto.Execution;
 import com.climatetree.user.enums.Constants;
+import com.climatetree.user.exception.InternalException;
 import com.climatetree.user.model.User;
 import com.climatetree.user.service.UserService;
+
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * The UserController translates interaction with the front-end user interface into actions to be
@@ -25,125 +21,147 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-  // The userService component is the bridge between the controller and the DAO
-  @Autowired
-  private UserService userService;
+    // The userService component is the bridge between the controller and the DAO
+    @Autowired
+    private UserService userService;
 
-  public UserController() {}
-
-  public UserController(UserService service) {
-    this.userService =  service;
-  }
-
-  /**
-   * Find all users map.
-   *
-   * @return the map
-   */
-  @GetMapping("")
-  public Map<String, Object> getUsers() {
-    Map<String, Object> resultMap = new HashMap<>();
-    try {
-      Execution<User> res = userService.findAllUsers();
-      resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
-      resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
-
-    } catch (Exception e) {
-      resultMap.put(Constants.SUCCESS.getStatusCode(), false);
-      resultMap.put(Constants.EXCEPTION.getStatusCode(), e.getMessage());
+    public UserController() {
     }
-    return resultMap;
-  }
 
-  /**
-   * Find users by name map.
-   *
-   * @param name the name
-   * @return the map
-   */
-  @GetMapping("/searchname")
-  public Map<String, Object> getUsersByName(String name) {
-    Map<String, Object> resultMap = new HashMap<>();
-    try {
-      Execution<User> res = userService.getUsersByName(name);
-      resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
-      resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
-    } catch (Exception e) {
-      resultMap.put(Constants.SUCCESS.getStatusCode(), false);
-      resultMap.put(Constants.EXCEPTION.getStatusCode(), e.getMessage());
+    public UserController(UserService service) {
+        this.userService = service;
     }
-    return resultMap;
-  }
 
-  /**
-   * Get all users based on their roles
-   *
-   * @param roleid the roleid
-   * @return map
-   */
-  @GetMapping("/searchrole")
-  public Map<String, Object> getUsersByRoleId(Integer roleid) {
-    Map<String, Object> resultMap = new HashMap<>();
-    try {
-      Execution<User> res = userService.getUsersByRoleId(roleid);
-      resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
-      resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
-    } catch (Exception e) {
-      resultMap.put(Constants.SUCCESS.getStatusCode(), false);
-      resultMap.put(Constants.EXCEPTION.getStatusCode(), e.getMessage());
+    /**
+     * Find all users map.
+     *
+     * @return the map
+     */
+    @GetMapping("")
+    @ResponseBody
+    public Map<String, Object> getUsers() throws InternalException {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            Execution<User> res = userService.findAllUsers();
+            resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
+        } catch (Exception e) {
+            throw new InternalException(e.getMessage());
+        }
+
+        return resultMap;
     }
-    return resultMap;
-  }
 
-  /**
-   * add a new user
-   *
-   * @param newUser the new user
-   * @return map
-   */
-  @PostMapping("/addUser")
-  public Map<String, Object> createUser(@RequestBody User newUser) {
-    Map<String, Object> resultMap = new HashMap<>();
-    try {
-      Execution<User> res = userService.insertUser(newUser);
-      resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
-      resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
-    } catch (Exception e) {
-      resultMap.put(Constants.SUCCESS.getStatusCode(), false);
-      resultMap.put(Constants.EXCEPTION.getStatusCode(), e.getMessage());
+    /**
+     * Find users by name map.
+     *
+     * @param name the name
+     * @return the map
+     */
+    @GetMapping("/searchname")
+    @ResponseBody
+    public Map<String, Object> getUsersByName(String name) throws InternalException {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            Execution<User> res = userService.getUsersByName(name);
+            resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
+            resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
+        } catch (Exception e) {
+            throw new InternalException(e.getMessage());
+        }
+        return resultMap;
     }
-    return resultMap;
-  }
 
-  /**
-   * delete a user
-   *
-   * @param userId the user id
-   * @return map
-   */
-  @DeleteMapping(path = "/{userId}")
-  public Map<String, Object> deleteUser(@PathVariable Long userId) {
-    Map<String, Object> resultMap = new HashMap<>();
-    try {
-      Execution<User> res = userService.deleteUser(userId);
-      resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
-      resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
-    } catch (Exception e) {
-      resultMap.put(Constants.SUCCESS.getStatusCode(), false);
-      resultMap.put(Constants.EXCEPTION.getStatusCode(), e.getMessage());
+    /**
+     * Get all users based on their roles
+     *
+     * @param roleid the roleid
+     * @return map
+     */
+    @GetMapping("/searchrole")
+    @ResponseBody
+    public Map<String, Object> getUsersByRoleId(Integer roleid) throws InternalException {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            Execution<User> res = userService.getUsersByRoleId(roleid);
+            resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
+            resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
+        } catch (Exception e) {
+            throw new InternalException(e.getMessage());
+
+        }
+        return resultMap;
     }
-    return resultMap;
-  }
 
-  /**
-   * Update user role map.
-   *
-   * @param request the request
-   * @return the map
-   */
-  @PutMapping("/")
-  public Map<String, Object> updateUserRole(HttpServletRequest request) {
-    return null;
-  }
+    /**
+     * add a new user
+     *
+     * @param newUser the new user
+     * @return map
+     */
+    @PostMapping("/addUser")
+    @ResponseBody
+    public Map<String, Object> createUser(@RequestBody User newUser) throws InternalException {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            Execution<User> res = userService.insertUser(newUser);
+            resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
+            resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
+        } catch (Exception e) {
+            throw new InternalException(e.getMessage());
+
+        }
+        return resultMap;
+    }
+
+    /**
+     * find all users that has been flagged (true) --> to moderate
+     *
+     * @return a list of user that has been been flagged
+     */
+    @GetMapping("/flagged_users")
+    public Map<String, Object> getFlaggedUsers() throws InternalException {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            Execution<User> res = userService.getFlaggedUsers();
+            resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
+        } catch (Exception e) {
+            throw new InternalException(e.getMessage());
+        }
+        return resultMap;
+    }
+
+    /**
+     * delete a user
+     *
+     * @param userId the user id
+     * @return map
+     */
+    @DeleteMapping(path = "/{userId}")
+    @ResponseBody
+    public Map<String, Object> deleteUser(@PathVariable Long userId) throws InternalException {
+        Map<String, Object> resultMap = new HashMap<>();
+        try {
+            Execution<User> res = userService.deleteUser(userId);
+            resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
+            resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
+        } catch (Exception e) {
+            throw new InternalException(e.getMessage());
+
+        }
+        return resultMap;
+    }
+
+    /**
+     * Update user role map.
+     *
+     * @param request the request
+     * @return the map
+     */
+    @PutMapping("/")
+    @ResponseBody
+    public Map<String, Object> updateUserRole(HttpServletRequest request) {
+        return null;
+    }
+
 }
 
