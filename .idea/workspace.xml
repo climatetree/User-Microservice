@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+
     <list default="true" id="8712fc21-606e-43ab-aa40-84895bf5c9f1" name="Default Changelist" comment="Merge branch 'develop' of https://github.com/climatetree/user-microservice into anda&#10;&#10;# Conflicts:&#10;#&#9;.gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -195,6 +196,7 @@
       </set>
     </option>
   </component>
+
   <component name="RunManager" selected="Spring Boot.MicroserviceApplication">
     <configuration name="JwtTokenUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
@@ -204,13 +206,16 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="com.climatetree.user.config" />
       <option name="MAIN_CLASS_NAME" value="com.climatetree.user.config.JwtTokenUtilTest" />
+
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="JwtTokenUtilTest.generateToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
       <extension name="coverage">
@@ -219,6 +224,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="com.climatetree.user.config" />
       <option name="MAIN_CLASS_NAME" value="com.climatetree.user.config.JwtTokenUtilTest" />
       <option name="METHOD_NAME" value="generateToken" />
@@ -227,6 +233,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="JwtTokenUtilTest.getUsernameFromToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
       <extension name="coverage">
@@ -235,6 +242,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="com.climatetree.user.config" />
       <option name="MAIN_CLASS_NAME" value="com.climatetree.user.config.JwtTokenUtilTest" />
       <option name="METHOD_NAME" value="getUsernameFromToken" />
@@ -243,6 +251,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
+
     <configuration name="JwtTokenUtilTest.testGenerateTokenWithException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
       <extension name="coverage">
@@ -251,6 +261,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="com.climatetree.user.config" />
       <option name="MAIN_CLASS_NAME" value="com.climatetree.user.config.JwtTokenUtilTest" />
       <option name="METHOD_NAME" value="testGenerateTokenWithException" />
@@ -259,6 +270,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="JwtTokenUtilTest.validateToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="microservice" />
       <extension name="coverage">
@@ -267,6 +279,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="com.climatetree.user.config" />
       <option name="MAIN_CLASS_NAME" value="com.climatetree.user.config.JwtTokenUtilTest" />
       <option name="METHOD_NAME" value="validateToken" />
@@ -292,6 +305,7 @@
       </method>
     </configuration>
     <list>
+
       <item itemvalue="JUnit.JwtTokenUtilTest.getUsernameFromToken" />
       <item itemvalue="JUnit.JwtTokenUtilTest.generateToken" />
       <item itemvalue="JUnit.JwtTokenUtilTest.testGenerateTokenWithException" />
@@ -302,6 +316,7 @@
     </list>
     <recent_temporary>
       <list>
+
         <item itemvalue="JUnit.JwtTokenUtilTest" />
         <item itemvalue="JUnit.JwtTokenUtilTest.validateToken" />
         <item itemvalue="JUnit.JwtTokenUtilTest.testGenerateTokenWithException" />
@@ -362,6 +377,7 @@
       <workItem from="1583871739989" duration="1414000" />
       <workItem from="1583879146768" duration="2120000" />
       <workItem from="1583945323318" duration="2508000" />
+
       <workItem from="1584231884245" duration="488000" />
       <workItem from="1584843187785" duration="863000" />
     </task>
@@ -409,9 +425,10 @@
     </state>
     <state x="274" y="44" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1584232122288" />
     <state x="320" y="117" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1582657235583" />
-    <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1583880579373">
+    <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1584369797186">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
+
     <state x="100" y="100" width="1080" height="600" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.800@0.0.1280.800" timestamp="1583880579373" />
     <state x="533" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1584146248019">
       <screen x="0" y="0" width="1440" height="900" />
@@ -445,14 +462,16 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="471" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1582411360544" />
-    <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582654274723">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="407" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584312437430">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state x="407" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1584312437430" />
     <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1582654274723" />
     <state x="215" y="26" key="CommitChangelistDialog2" timestamp="1582429965684">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="215" y="26" key="CommitChangelistDialog2/0.0.1440.900/-2560.0.2560.1080@0.0.1440.900" timestamp="1582429965684" />
+
     <state width="1237" height="174" key="GridCell.Tab.0.bottom" timestamp="1584909490911">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -494,6 +513,7 @@
     <state width="1237" height="218" key="GridCell.Tab.0.left/0.0.1440.900/-2560.23.2560.1057@0.0.1440.900" timestamp="1584146525340" />
     <state width="1237" height="174" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1584909490909" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.0.1440.900@0.23.1440.810" timestamp="1583606684803" />
+
     <state width="1238" height="185" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1583949583452" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.23.1440.806/-2560.23.2560.1057@0.23.1440.806" timestamp="1584312290221" />
     <state width="1398" height="162" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1583608746157" />
@@ -622,6 +642,7 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="dock-window-1/0.0.1440.900@0.0.1440.900" timestamp="1582778887067" />
+
     <state x="466" y="171" key="git4idea.branch.GitSmartOperationDialog" timestamp="1584909190025">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -659,4 +680,5 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+
 </project>
