@@ -111,3 +111,6 @@ target
 .idea
 .mvn
 
+# Spring .iml files
+*.iml
+
