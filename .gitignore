@@ -103,6 +103,11 @@ dist
 # TernJS port file
 .tern-port
 
+# Intellij
+.idea/
 target
 .idea
 .mvn
+
+# Spring .iml files
+*.iml
