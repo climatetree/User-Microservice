@@ -51,7 +51,11 @@ public class UserControllerTest {
 
     exe.setObject(user);
     exe.setResult(ResultEnum.SUCCESS);
-    Map<String, Object> res = controller.createUser(user);
+    try {
+      Map<String, Object> res = controller.createUser(user);
+    } catch (InternalException e) {
+      e.printStackTrace();
+    }
 
     Map<String, Object> result = new HashMap<>();
     result.put("userId", Constants.SUCCESS.getStatusCode());
@@ -59,10 +63,14 @@ public class UserControllerTest {
     result.put("email", Constants.SUCCESS.getStatusCode());
     result.put("role", Constants.SUCCESS.getStatusCode());
 
-    doReturn(result).when(controller).createUser(user);
+//    doReturn(result).when(controller).createUser(user);
     //when(controller.createUser(user)).thenReturn(result);
 
-    verify(controller).createUser(user);
+    try {
+      verify(controller).createUser(user);
+    } catch (InternalException e) {
+      e.printStackTrace();
+    }
 
     assertEquals("success",  result.get("userId"));
     assertEquals("success",  result.get("email"));
@@ -90,7 +98,12 @@ public class UserControllerTest {
 
     exe.setResult(ResultEnum.SUCCESS);
     when(mockService.insertUser(user)).thenReturn(exe);
-    Map<String, Object> res = controller.createUser(user);
+    Map<String, Object> res = null;
+    try {
+      res = controller.createUser(user);
+    } catch (InternalException e) {
+      e.printStackTrace();
+    }
 
     // test
     verify(mockService).insertUser(user);
@@ -98,7 +111,12 @@ public class UserControllerTest {
     assertEquals(User.class, exe.getObject().getClass());
 
     when(mockService.getUsersByName("john")).thenReturn(exe);
-    Map<String, Object> resTwo = controller.getUsersByName("john");
+    Map<String, Object> resTwo = null;
+    try {
+      resTwo = controller.getUsersByName("john");
+    } catch (InternalException e) {
+      e.printStackTrace();
+    }
     verify(mockService).getUsersByName("john");
     assertEquals(ResultEnum.SUCCESS,  resTwo.get(Constants.SUCCESS.getStatusCode()));
 
@@ -123,7 +141,12 @@ public class UserControllerTest {
 
     exe.setResult(ResultEnum.SUCCESS);
     when(mockService.insertUser(user)).thenReturn(exe);
-    Map<String, Object> res = controller.createUser(user);
+    Map<String, Object> res = null;
+    try {
+      res = controller.createUser(user);
+    } catch (InternalException e) {
+      e.printStackTrace();
+    }
 
     // test
     verify(mockService).insertUser(user);
@@ -132,7 +155,12 @@ public class UserControllerTest {
 
 
     when(mockService.getUsersByRoleId(1)).thenReturn(exe);
-    Map<String, Object> resTwo = controller.getUsersByRoleId(1);
+    Map<String, Object> resTwo = null;
+    try {
+      resTwo = controller.getUsersByRoleId(1);
+    } catch (InternalException e) {
+      e.printStackTrace();
+    }
     verify(mockService).getUsersByRoleId(1);
     assertEquals(ResultEnum.SUCCESS,  resTwo.get(Constants.SUCCESS.getStatusCode()));
 

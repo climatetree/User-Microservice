@@ -1,6 +1,6 @@
 package com.climatetree.user.config;
 
-import com.climatetree.user.controller.HelloWorldController;
+//import com.climatetree.user.controller.HelloWorldController;
 import com.climatetree.user.enums.Constants;
 import com.climatetree.user.model.User;
 import io.jsonwebtoken.Jwt;
