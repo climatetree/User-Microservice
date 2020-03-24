@@ -14,7 +14,7 @@ public class JwtUserDetailsService {
   @Autowired
   UserDao userDao;
 
-  public User loadUserByUsername(String username, String email) throws UsernameNotFoundException {
+  public User loadUserByUsername(String username, String email) {
     User user = userDao.findByEmail(email);
     if (user == null) {
       user = this.saveUserDetails(username,email);

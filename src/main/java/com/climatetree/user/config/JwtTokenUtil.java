@@ -3,6 +3,7 @@ package com.climatetree.user.config;
 import com.climatetree.user.enums.Constants;
 import com.climatetree.user.model.User;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -33,17 +34,24 @@ public class JwtTokenUtil implements Serializable {
 
     //retrieve expiration date from jwt token
     public Date getExpirationDateFromToken(String token) throws UnsupportedEncodingException {
-        return getClaimFromToken(token, Claims::getExpiration);
+      Date expDate = getClaimFromToken(token, Claims::getExpiration);
+      if (expDate == null) return null;
+        return expDate;
     }
 
     public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) throws UnsupportedEncodingException {
         final Claims claims = getAllClaimsFromToken(token);
+        if (claims == null) return null;
         return claimsResolver.apply(claims);
     }
 
     //for retrieveing any information from token we will need the secret key
     private Claims getAllClaimsFromToken(String token) throws UnsupportedEncodingException {
-        return Jwts.parser().setSigningKey(secret.getBytes(StandardCharsets.UTF_8)).parseClaimsJws(token).getBody();
+        try {
+          return Jwts.parser().setSigningKey(secret.getBytes(StandardCharsets.UTF_8)).parseClaimsJws(token).getBody();
+        } catch (ExpiredJwtException e) {
+          return null;
+        }
     }
 
     //check if the token has expired
@@ -79,6 +87,6 @@ public class JwtTokenUtil implements Serializable {
     //validate token
     public Boolean validateToken(String token, User userDetails) throws UnsupportedEncodingException {
         final String username = getUsernameFromToken(token);
-        return (username.equals(userDetails.getNickname()) && !isTokenExpired(token));
+        return username.equals(userDetails.getNickname());
     }
 }
