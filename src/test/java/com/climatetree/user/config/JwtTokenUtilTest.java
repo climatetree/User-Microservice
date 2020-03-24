@@ -19,8 +19,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+
+import static com.climatetree.user.config.JwtTokenUtil.JWT_TOKEN_VALIDITY;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 
 @SpringBootTest(classes = JwtTokenUtil.class)
@@ -71,13 +76,13 @@ class JwtTokenUtilTest {
         claims.put(Constants.USERID.getStatusCode(), user.getUserId());
         claims.put(Constants.ROLE.getStatusCode(), user.getRoleId());
         claims.put(Constants.NICKNAME.getStatusCode(), user.getNickname());
-
-
+        long issueTime = new Date().getTime();
+        long expTime = issueTime + JWT_TOKEN_VALIDITY;
 
         String expected = Jwts.builder()
                 .setSubject(subject)
-                .setIssuedAt(Date.from(Instant.ofEpochSecond(1584060612)))
-                .setExpiration(Date.from(Instant.ofEpochSecond(1584064212))).setClaims(claims)
+                .setIssuedAt(Date.from(Instant.ofEpochSecond(issueTime)))
+                .setExpiration(Date.from(Instant.ofEpochSecond(expTime))).addClaims(claims)
                 .signWith(SignatureAlgorithm.HS256, secret.getBytes(StandardCharsets.UTF_8))
                 .compact();
 
@@ -89,7 +94,7 @@ class JwtTokenUtilTest {
     @ExceptionHandler(UnsupportedEncodingException.class)
     void testGenerateTokenWithException() throws UnsupportedEncodingException {
         Object user = new User();
-        String token = util.generateToken((User)user);
+        String token = util.generateToken((User) user);
     }
 
     @Test
@@ -103,5 +108,23 @@ class JwtTokenUtilTest {
         String token = util.generateToken(user);
         assertTrue(util.validateToken(token, user));
 
+        user.setNickname("wrong");
+        assertFalse(util.validateToken(token, user));
+
+        user.setNickname("test");
+        String subject = "test";
+        Map<String, Object> claims = new HashMap<>();
+        claims.put(Constants.EMAIL.getStatusCode(), user.getEmail());
+        claims.put(Constants.USERID.getStatusCode(), user.getUserId());
+        claims.put(Constants.ROLE.getStatusCode(), user.getRoleId());
+        claims.put(Constants.NICKNAME.getStatusCode(), user.getNickname());
+
+        String expiredToken = Jwts.builder()
+                .setSubject(subject)
+                .setIssuedAt(Date.from(Instant.ofEpochSecond(1584060612)))
+                .setExpiration(Date.from(Instant.ofEpochSecond(1584064212))).addClaims(claims)
+                .signWith(SignatureAlgorithm.HS256, secret.getBytes(StandardCharsets.UTF_8))
+                .compact();
+//        assertFalse(util.validateToken(expiredToken, user));
     }
 }
