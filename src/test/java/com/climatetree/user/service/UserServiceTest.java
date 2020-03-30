@@ -1,30 +1,25 @@
 package com.climatetree.user.service;
 
-import com.climatetree.user.dao.UserDao;
-import com.climatetree.user.dto.Execution;
-import com.climatetree.user.model.User;
-import com.climatetree.user.enums.ResultEnum;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.Date;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import com.climatetree.user.dao.UserDao;
+import com.climatetree.user.dto.Execution;
+import com.climatetree.user.enums.ResultEnum;
+import com.climatetree.user.model.Role;
+import com.climatetree.user.model.User;
 
 
-class UserServiceTest {
+public class UserServiceTest {
 
     @Test
     void getUserEmail() throws Exception {
@@ -78,14 +73,14 @@ class UserServiceTest {
         UserDao mockDao = Mockito.mock(UserDao.class);
         UserService mockService = new UserService(mockDao);
         User newUser = new User();
-        newUser.setRoleId(2);
+        newUser.setRole(new Role(2, "ADV_USERS"));
         when(mockDao.findByUserId(1L)).thenReturn(newUser);
 
         Execution<User> exe = mockService.getUser(1L);
         User resUser = exe.getObject();
         assertEquals(User.class, resUser.getClass());
         assertEquals(ResultEnum.SUCCESS, exe.getResult());
-        assertEquals(2, resUser.getRoleId().intValue());
+        assertEquals(2, resUser.getRole().getRoleId());
     }
 
 
@@ -310,11 +305,11 @@ class UserServiceTest {
         List<User> expectedResult = new ArrayList<>();
         User user1 = new User();
         user1.setUserId(1L);
-        user1.setRoleId(1);
+        user1.setRole(new Role(1, "ADMIN"));
 
         User user2 = new User();
         user2.setUserId(2L);
-        user2.setRoleId(1);
+        user2.setRole(new Role(1, "ADMIN"));
 
         expectedResult.add(user1);
         expectedResult.add(user2);

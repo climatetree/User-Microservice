@@ -1,24 +1,26 @@
 package com.climatetree.user.dao;
 
-import com.climatetree.user.model.User;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import com.climatetree.user.model.Role;
+import com.climatetree.user.model.User;
 
 
 //@SpringBootTest
 //@RunWith(SpringRunner.class)
-class UserDaoTest {
+public class UserDaoTest {
 
   private UserDao mockDao;
+  private RoleDao mockRoleDao;
 
 
   @Test
@@ -26,6 +28,9 @@ class UserDaoTest {
     Date accountCreationDate = new Date(2018 / 02 / 20);
     Date lastLoginDate = new Date(2019 / 12 / 24);
     mockDao = mock(UserDao.class);
+    mockRoleDao = mock(RoleDao.class);
+    
+    when(mockRoleDao.findByRoleId(1)).thenReturn(new Role(1, "ADMIN"));
     Long userId = 20000L;
     User user = new User();
     user.setEmail("tom@gmail.com");
@@ -34,7 +39,7 @@ class UserDaoTest {
     user.setLastLoginTime(lastLoginDate);
     user.setRegistrationDate(accountCreationDate);
     user.setNickname("john");
-    user.setRoleId(1);
+    user.setRole(mockRoleDao.findByRoleId(1));
     user.setUserId(userId);
     System.out.println(user.getNickname());
     when(mockDao.save(user)).thenReturn(user);
@@ -46,7 +51,7 @@ class UserDaoTest {
     Assertions.assertEquals(true, testUser.getFlag());
     Assertions.assertEquals("London", testUser.getLastLoginLocation());
     Assertions.assertEquals("john", testUser.getNickname());
-    Assertions.assertEquals(1, testUser.getRoleId());
+    Assertions.assertEquals(1, testUser.getRole().getRoleId());
     Assertions.assertEquals(accountCreationDate, testUser.getRegistrationDate());
     Assertions.assertEquals(lastLoginDate, testUser.getLastLoginTime());
   }

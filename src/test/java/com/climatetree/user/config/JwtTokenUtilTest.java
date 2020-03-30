@@ -1,16 +1,8 @@
 package com.climatetree.user.config;
 
-import com.climatetree.user.enums.Constants;
-import com.climatetree.user.model.User;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import static com.climatetree.user.config.JwtTokenUtil.JWT_TOKEN_VALIDITY;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
@@ -19,18 +11,26 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import static com.climatetree.user.config.JwtTokenUtil.JWT_TOKEN_VALIDITY;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.climatetree.user.enums.Constants;
+import com.climatetree.user.model.Role;
+import com.climatetree.user.model.User;
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 
 
 @SpringBootTest(classes = JwtTokenUtil.class)
 @RunWith(SpringRunner.class)
-class JwtTokenUtilTest {
+public class JwtTokenUtilTest {
 
     @Autowired
     private JwtTokenUtil util;
@@ -54,7 +54,7 @@ class JwtTokenUtilTest {
     @Test
     void getClaimFromToken() throws UnsupportedEncodingException {
         User user = new User();
-        user.setRoleId(1);
+        user.setRole(new Role(1, "ADMIN"));
         user.setNickname("test");
         user.setEmail("a@a.com");
         user.setUserId(1L);
@@ -65,7 +65,7 @@ class JwtTokenUtilTest {
     @Test
     void generateToken() throws UnsupportedEncodingException {
         User user = new User();
-        user.setRoleId(1);
+        user.setRole(new Role(1, "ADMIN"));
         user.setNickname("test");
         user.setEmail("a@a.com");
         user.setUserId(1L);
@@ -74,7 +74,7 @@ class JwtTokenUtilTest {
         Map<String, Object> claims = new HashMap<>();
         claims.put(Constants.EMAIL.getStatusCode(), user.getEmail());
         claims.put(Constants.USERID.getStatusCode(), user.getUserId());
-        claims.put(Constants.ROLE.getStatusCode(), user.getRoleId());
+        claims.put(Constants.ROLE.getStatusCode(), user.getRole().getRoleId());
         claims.put(Constants.NICKNAME.getStatusCode(), user.getNickname());
         long issueTime = new Date().getTime();
         long expTime = issueTime + JWT_TOKEN_VALIDITY;
@@ -100,7 +100,7 @@ class JwtTokenUtilTest {
     @Test
     void validateToken() throws UnsupportedEncodingException {
         User user = new User();
-        user.setRoleId(1);
+        user.setRole(new Role(1, "ADMIN"));
         user.setNickname("test");
         user.setEmail("a@a.com");
         user.setUserId(1L);
@@ -116,7 +116,7 @@ class JwtTokenUtilTest {
         Map<String, Object> claims = new HashMap<>();
         claims.put(Constants.EMAIL.getStatusCode(), user.getEmail());
         claims.put(Constants.USERID.getStatusCode(), user.getUserId());
-        claims.put(Constants.ROLE.getStatusCode(), user.getRoleId());
+        claims.put(Constants.ROLE.getStatusCode(), user.getRole().getRoleId());
         claims.put(Constants.NICKNAME.getStatusCode(), user.getNickname());
 
         String expiredToken = Jwts.builder()
