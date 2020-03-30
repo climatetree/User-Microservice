@@ -130,7 +130,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User{" + "userId=" + userId + ", email='" + email + '\'' + ", nickname='" + nickname + '\'' + ", flag="
-				+ flag + ", role=" + role.getName() + ", registrationDate=" + registrationDate + ", lastLoginTime="
+				+ flag + ", role=" + role + ", registrationDate=" + registrationDate + ", lastLoginTime="
 				+ lastLoginTime + ", lastLoginLocation='" + lastLoginLocation + '\'' + '}';
 	}
 }
