@@ -1,32 +1,25 @@
 package com.climatetree.user.controller;
 
-import com.climatetree.user.dto.Execution;
-import com.climatetree.user.enums.Constants;
-import com.climatetree.user.enums.ResultEnum;
-import com.climatetree.user.exception.InternalException;
-import com.climatetree.user.model.User;
-import com.climatetree.user.service.UserService;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-
-import java.util.HashMap;
-
-import java.util.Map;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.climatetree.user.dto.Execution;
+import com.climatetree.user.enums.Constants;
+import com.climatetree.user.enums.ResultEnum;
+import com.climatetree.user.exception.InternalException;
+import com.climatetree.user.model.Role;
+import com.climatetree.user.model.User;
+import com.climatetree.user.service.UserService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -133,7 +126,7 @@ public class UserControllerTest {
     user.setNickname("john");
     user.setEmail("john@gmail.com");
     user.setUserId(33L);
-    user.setRoleId(1);
+    user.setRole(new Role(1, "ADMIN"));
 
     Execution<User> exe = new Execution<>();
     exe.setObject(user);
@@ -178,7 +171,7 @@ public class UserControllerTest {
     user.setNickname("john");
     user.setEmail("john@gmail.com");
     user.setUserId(33L);
-    user.setRoleId(1);
+    user.setRole(new Role(1, "ADMIN"));
 
     Execution<User> exe = new Execution<>();
     exe.setObject(user);
