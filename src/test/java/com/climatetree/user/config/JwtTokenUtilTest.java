@@ -16,9 +16,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.climatetree.user.dao.RoleDao;
 import com.climatetree.user.enums.Constants;
 import com.climatetree.user.model.Role;
 import com.climatetree.user.model.User;
@@ -36,6 +38,9 @@ public class JwtTokenUtilTest {
     private JwtTokenUtil util;
 
     private final String secret = "climatetree";
+    
+    @MockBean
+    RoleDao dao;
 
     @BeforeEach
     void setUp() {
