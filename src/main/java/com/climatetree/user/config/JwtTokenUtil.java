@@ -62,7 +62,7 @@ public class JwtTokenUtil implements Serializable {
 			//System.out.println("JWT ---- line 55"+x.get(Constants.ROLE.getStatusCode()));
 			Claims s = claims.getBody();
 
-			System.out.println("Role of priyanka ---"+ roleDao.findByRoleId(Integer.parseInt(s.get("role").toString())).getName() );
+//			System.out.println("Role of priyanka ---"+ roleDao.findByRoleId(Integer.parseInt(s.get("role").toString())).getName() );
 			return Jwts.parser().setSigningKey(secret.getBytes(StandardCharsets.UTF_8)).parseClaimsJws(token).getBody();
 		} catch (ExpiredJwtException e) {
 			return null;
