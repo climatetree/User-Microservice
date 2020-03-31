@@ -33,7 +33,7 @@ public class JwtUserDetailsService {
     user.setNickname(username);
     user.setEmail(email);
     //just setting advanced user for now
-    user.setRole(roleDao.findByRoleId(Integer.parseInt(Constants.ADV_USERS.getStatusCode())));
+    user.setRole(roleDao.findByName(Constants.REGISTERED_USERS.name()));
     user.setLastLoginLocation(Constants.LAST_LOGIN.getStatusCode());
     user.setLastLoginTime(new Date());
     user.setRegistrationDate(new Date());
