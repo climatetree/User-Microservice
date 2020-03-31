@@ -162,9 +162,9 @@ public class UserController {
     public Map<String, Object> updateUserRole(HttpServletRequest request) {
         return null;
     }
-    
-    @Deprecated
-    @PostMapping("/setup_roles")
+
+    @RequestMapping(value = "/setup_roles", method = RequestMethod.POST)
+   // @GetMapping("/setup_roles")
     public void setupRoles() {
         userService.setupRoles();
     }
