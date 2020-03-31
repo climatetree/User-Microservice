@@ -180,7 +180,7 @@ public class UserService {
 		List<Role> roles = new ArrayList<>();
 		roles.add(new Role(1, Constants.ADMIN.name()));
 		roles.add(new Role(2, Constants.MODERATOR.name()));
-		roles.add(new Role(3, Constants.ADV_USERS.name()));
+		roles.add(new Role(3, Constants.REGISTERED_USERS.name()));
 		roles.forEach(r -> roleDao.save(r));
 
 	}
