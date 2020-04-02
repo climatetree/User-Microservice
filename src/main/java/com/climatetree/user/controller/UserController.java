@@ -224,4 +224,27 @@ public class UserController {
 		return new ResponseEntity(HttpStatus.UNAUTHORIZED);
 	}
 
+	@RequestMapping(value = "blacklist/{userId}", method = RequestMethod.PUT)
+	public ResponseEntity<?> blacklistUser(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId)
+			throws UnsupportedEncodingException {
+
+		final User loggedUser = jwtService.loadUserByUsername(authenticationRequest.getUsername(),
+				authenticationRequest.getEmail());
+		if (loggedUser.getUserId().equals(userId)) {
+			return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+		}
+		final String token = jwtTokenUtil.generateToken(loggedUser);
+		Role role = jwtTokenUtil.getRoleFromToken(token);
+		if (role != null && (role.getName().equals(Constants.ADMIN.name())
+				|| role.getName().equals(Constants.MODERATOR.name()))) {
+			Execution<User> res = userService.blacklistUser(userId);
+			if (res.getResult().equals(ResultEnum.DATABASE_ERROR)) {
+				return new ResponseEntity(HttpStatus.NOT_FOUND);
+			} else {
+				return new ResponseEntity(HttpStatus.OK);
+			}
+		}
+		return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+	}
+
 }
