@@ -34,7 +34,7 @@ public class UserDaoTest {
     Long userId = 20000L;
     User user = new User();
     user.setEmail("tom@gmail.com");
-    user.setFlag(true);
+    user.setBlacklisted(false);
     user.setLastLoginLocation("London");
     user.setLastLoginTime(lastLoginDate);
     user.setRegistrationDate(accountCreationDate);
@@ -48,7 +48,7 @@ public class UserDaoTest {
     User testUser = mockDao.findByUserId(20000L);
     Assertions.assertEquals(20000L, testUser.getUserId());
     Assertions.assertEquals("tom@gmail.com", testUser.getEmail());
-    Assertions.assertEquals(true, testUser.getFlag());
+    Assertions.assertEquals(false, testUser.getBlacklisted());
     Assertions.assertEquals("London", testUser.getLastLoginLocation());
     Assertions.assertEquals("john", testUser.getNickname());
     Assertions.assertEquals(1, testUser.getRole().getRoleId());
