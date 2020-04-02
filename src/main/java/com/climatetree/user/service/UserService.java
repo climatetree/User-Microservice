@@ -117,8 +117,14 @@ public class UserService {
 	public Execution<User> deleteUser(Long userId) {
 		Execution<User> res;
 		try {
-			userDao.deleteById(userId);
-			res = new Execution<>(ResultEnum.SUCCESS, 1);
+			User user = userDao.findByUserId(userId);
+			if (user == null) {
+				res = new Execution<>(ResultEnum.DATABASE_ERROR);
+			}
+			else {
+				userDao.deleteById(user.getUserId());
+				res = new Execution<>(ResultEnum.SUCCESS, 1);
+			}
 		} catch (Exception e) {
 			res = new Execution<>(ResultEnum.INNER_ERROR);
 		}
