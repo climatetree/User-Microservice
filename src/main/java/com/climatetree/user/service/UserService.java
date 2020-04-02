@@ -218,4 +218,22 @@ public class UserService {
 		roles.forEach(r -> roleDao.save(r));
 
 	}
+
+	public Execution<User> blacklistUser(Long userId) {
+		Execution<User> res;
+		try {
+			User user = userDao.findByUserId(userId);
+			if (user == null) {
+				res = new Execution<>(ResultEnum.DATABASE_ERROR);
+			} else {
+
+				user.setBlacklisted(true);
+				userDao.save(user);
+				res = new Execution<>(ResultEnum.SUCCESS, 1);
+			}
+		} catch (Exception e) {
+			res = new Execution<>(ResultEnum.INNER_ERROR);
+		}
+		return res;
+	}
 }
