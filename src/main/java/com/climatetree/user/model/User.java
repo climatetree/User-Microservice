@@ -30,8 +30,7 @@ public class User {
 	@Column(name = "nickname")
 	private String nickname;
 
-	@Column(name = "flag")
-	private Boolean flag;
+	private Boolean blacklisted;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "roleid")
@@ -87,12 +86,12 @@ public class User {
 		this.nickname = nickname;
 	}
 
-	public Boolean getFlag() {
-		return flag;
+	public Boolean getBlacklisted() {
+		return blacklisted;
 	}
 
-	public void setFlag(Boolean flag) {
-		this.flag = flag;
+	public void setBlacklisted(Boolean blacklisted) {
+		this.blacklisted = blacklisted;
 	}
 
 	public Role getRole() {
@@ -129,8 +128,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User{" + "userId=" + userId + ", email='" + email + '\'' + ", nickname='" + nickname + '\'' + ", flag="
-				+ flag + ", role=" + role + ", registrationDate=" + registrationDate + ", lastLoginTime="
-				+ lastLoginTime + ", lastLoginLocation='" + lastLoginLocation + '\'' + '}';
+		return "User{" + "userId=" + userId + ", email='" + email + '\'' + ", nickname='" + nickname + '\''
+				+ ", blacklisted=" + blacklisted + ", role=" + role + ", registrationDate=" + registrationDate
+				+ ", lastLoginTime=" + lastLoginTime + ", lastLoginLocation='" + lastLoginLocation + '\'' + '}';
 	}
 }

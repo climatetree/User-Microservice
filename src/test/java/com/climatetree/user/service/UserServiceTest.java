@@ -83,19 +83,19 @@ public class UserServiceTest {
 	}
 
 	@Test
-	void isUserFlagged() throws Exception {
+	void isUserBlacklisted() throws Exception {
 
 		UserDao mockDao = Mockito.mock(UserDao.class);
 		UserService mockService = new UserService(mockDao);
 		User newUser = new User();
-		newUser.setFlag(false);
+		newUser.setBlacklisted(true);
 		when(mockDao.findByUserId(1L)).thenReturn(newUser);
 
 		Execution<User> exe = mockService.getUser(1L);
 		User resUser = exe.getObject();
 		assertEquals(User.class, resUser.getClass());
 		assertEquals(ResultEnum.SUCCESS, exe.getResult());
-		assertEquals(false, resUser.getFlag());
+		assertEquals(true, resUser.getBlacklisted());
 	}
 
 	@Test
