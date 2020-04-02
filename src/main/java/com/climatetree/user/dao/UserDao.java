@@ -51,7 +51,7 @@ public interface UserDao extends JpaRepository<User, Long> {
     List<User> findByNickname(String name);
 
 
-    List<User> findByFlagTrue();
+    List<User> findByBlacklistedTrue();
 
     /**
      * Get all users with certain roleId.

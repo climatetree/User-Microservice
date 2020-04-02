@@ -144,10 +144,10 @@ public class UserController {
 	 * @return a list of user that has been been flagged
 	 */
 	@GetMapping("/flagged_users")
-	public Map<String, Object> getFlaggedUsers() throws InternalException {
+	public Map<String, Object> getBlacklistedUsers() throws InternalException {
 		Map<String, Object> resultMap = new HashMap<>();
 		try {
-			Execution<User> res = userService.getFlaggedUsers();
+			Execution<User> res = userService.getBlacklistedUsers();
 			resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
 		} catch (Exception e) {
 			throw new InternalException(e.getMessage());
@@ -193,6 +193,30 @@ public class UserController {
 			Execution<User> res = userService.deleteUser(userId);
 			if (res.getResult().equals(ResultEnum.DATABASE_ERROR)) {
 				return new ResponseEntity(HttpStatus.NOT_FOUND);
+			} else {
+				return new ResponseEntity(HttpStatus.OK);
+			}
+		}
+		return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+	}
+
+	@RequestMapping(value = "/{userId}/{roleId}", method = RequestMethod.PUT)
+	public ResponseEntity<?> deleteUser(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId,
+			@PathVariable Integer roleId) throws UnsupportedEncodingException {
+
+		final User loggedUser = jwtService.loadUserByUsername(authenticationRequest.getUsername(),
+				authenticationRequest.getEmail());
+		if (loggedUser.getUserId().equals(userId)) {
+			return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+		}
+		final String token = jwtTokenUtil.generateToken(loggedUser);
+		Role role = jwtTokenUtil.getRoleFromToken(token);
+		if (role != null && role.getName().equals(Constants.ADMIN.name())) {
+			Execution<User> res = userService.updateUser(userId, roleId);
+			if (res.getResult().equals(ResultEnum.DATABASE_ERROR)) {
+				return new ResponseEntity(HttpStatus.NOT_FOUND);
+			} else if (res.getResult().equals(ResultEnum.FORBIDDEN)) {
+				return new ResponseEntity(HttpStatus.FORBIDDEN);
 			} else {
 				return new ResponseEntity(HttpStatus.OK);
 			}

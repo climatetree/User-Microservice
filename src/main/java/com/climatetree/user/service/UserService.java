@@ -120,10 +120,38 @@ public class UserService {
 			User user = userDao.findByUserId(userId);
 			if (user == null) {
 				res = new Execution<>(ResultEnum.DATABASE_ERROR);
-			}
-			else {
+			} else {
 				userDao.deleteById(user.getUserId());
 				res = new Execution<>(ResultEnum.SUCCESS, 1);
+			}
+		} catch (Exception e) {
+			res = new Execution<>(ResultEnum.INNER_ERROR);
+		}
+		return res;
+	}
+
+	/**
+	 * Delete user execution.
+	 *
+	 * @param userId the user id
+	 * @return the execution
+	 */
+	public Execution<User> updateUser(Long userId, Integer roleId) {
+		Execution<User> res;
+		try {
+			User user = userDao.findByUserId(userId);
+			if (user == null) {
+				res = new Execution<>(ResultEnum.DATABASE_ERROR);
+			} else {
+				Role newRole = roleDao.findByRoleId(roleId);
+				Role oldRole = user.getRole();
+				if (oldRole.getRoleId() == newRole.getRoleId()) {
+					res = new Execution<>(ResultEnum.FORBIDDEN);
+				} else {
+					user.setRole(newRole);
+					userDao.save(user);
+					res = new Execution<>(ResultEnum.SUCCESS, 1);
+				}
 			}
 		} catch (Exception e) {
 			res = new Execution<>(ResultEnum.INNER_ERROR);
@@ -170,10 +198,10 @@ public class UserService {
 	 * 
 	 * @return a lists of flagged users
 	 */
-	public Execution<User> getFlaggedUsers() {
+	public Execution<User> getBlacklistedUsers() {
 		Execution<User> res;
 		try {
-			List<User> users = userDao.findByFlagTrue();
+			List<User> users = userDao.findByBlacklistedTrue();
 			res = new Execution<>(ResultEnum.SUCCESS, users);
 		} catch (Exception e) {
 			res = new Execution<>(ResultEnum.INNER_ERROR);
