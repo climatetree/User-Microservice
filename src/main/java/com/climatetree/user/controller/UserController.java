@@ -28,8 +28,10 @@ import com.climatetree.user.exception.InternalException;
 import com.climatetree.user.model.JwtRequest;
 import com.climatetree.user.model.JwtResponse;
 import com.climatetree.user.model.Role;
+import com.climatetree.user.model.RoleUpdateRequest;
 import com.climatetree.user.model.User;
 import com.climatetree.user.service.JwtUserDetailsService;
+import com.climatetree.user.service.RoleUpdateRequestService;
 import com.climatetree.user.service.UserService;
 
 /**
@@ -43,6 +45,9 @@ public class UserController {
 	// The userService component is the bridge between the controller and the DAO
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private RoleUpdateRequestService reqService;
 
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;
@@ -155,18 +160,6 @@ public class UserController {
 		return resultMap;
 	}
 
-	/**
-	 * Update user role map.
-	 *
-	 * @param request the request
-	 * @return the map
-	 */
-	@PutMapping("/")
-	@ResponseBody
-	public Map<String, Object> updateUserRole(HttpServletRequest request) {
-		return null;
-	}
-
 	@RequestMapping(value = "/setup_roles", method = RequestMethod.POST)
 	public void setupRoles() {
 		userService.setupRoles();
@@ -200,8 +193,14 @@ public class UserController {
 		return new ResponseEntity(HttpStatus.UNAUTHORIZED);
 	}
 
+	/**
+	 * Update user role map.
+	 *
+	 * @param request the request
+	 * @return the map
+	 */
 	@RequestMapping(value = "/{userId}/{roleId}", method = RequestMethod.PUT)
-	public ResponseEntity<?> deleteUser(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId,
+	public ResponseEntity<?> updateUser(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId,
 			@PathVariable Integer roleId) throws UnsupportedEncodingException {
 
 		final User loggedUser = jwtService.loadUserByUsername(authenticationRequest.getUsername(),
@@ -245,6 +244,32 @@ public class UserController {
 			}
 		}
 		return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+	}
+
+	@RequestMapping(value = "/request_role_change/{userId}/{roleId}", method = RequestMethod.POST)
+	public ResponseEntity<?> requestRoleUpdate(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId,
+			@PathVariable Integer roleId) {
+		Execution<?> res = reqService.saveRoleUpdateRequest(userId, roleId);
+		if (res.getResult().equals(ResultEnum.FORBIDDEN)) {
+			return new ResponseEntity(HttpStatus.FORBIDDEN);
+		} else {
+			return new ResponseEntity(HttpStatus.OK);
+		}
+	}
+
+	@RequestMapping(value = "/get_all_role_update_requests", method = RequestMethod.GET)
+	public Map<String, Object> getAllRoleUpdateRequests(@RequestBody JwtRequest authenticationRequest)
+			throws UnsupportedEncodingException {
+		Map<String, Object> resultMap = new HashMap<>();
+		final User loggedUser = jwtService.loadUserByUsername(authenticationRequest.getUsername(),
+				authenticationRequest.getEmail());
+		final String token = jwtTokenUtil.generateToken(loggedUser);
+		Role role = jwtTokenUtil.getRoleFromToken(token);
+		if (role != null && role.getName().equals(Constants.ADMIN.name())) {
+			Execution<?> res = reqService.getAllRoleUpdateRequests();
+			resultMap.put(Constants.REQUESTS.getStatusCode(), res.getObjects());
+		}
+		return resultMap;
 	}
 
 }
