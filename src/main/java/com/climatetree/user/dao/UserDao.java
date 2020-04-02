@@ -2,6 +2,7 @@ package com.climatetree.user.dao;
 
 import com.climatetree.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -50,7 +51,7 @@ public interface UserDao extends JpaRepository<User, Long> {
     List<User> findByNickname(String name);
 
 
-    List<User> findByFlagTrue();
+    List<User> findByBlacklistedTrue();
 
     /**
      * Get all users with certain roleId.
@@ -58,6 +59,7 @@ public interface UserDao extends JpaRepository<User, Long> {
      * @param roleId A integer of users' roleId.
      * @return A list of user Objects
      */
+    @Query("Select user from User user WHERE user.role.roleId=:roleId")
     List<User> findByRoleId(Integer roleId);
 
 }

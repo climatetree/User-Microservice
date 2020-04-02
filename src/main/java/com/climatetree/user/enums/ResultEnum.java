@@ -5,4 +5,5 @@ public enum ResultEnum {
     SUCCESS,
     DATABASE_ERROR,
     INNER_ERROR,
+    FORBIDDEN
 }

@@ -3,10 +3,11 @@ package com.climatetree.user.enums;
 public enum Constants {
   SUCCESS  ("success"),
   USER("users"),
+  REQUESTS("requests"),
   EXCEPTION("exception"),
   ADMIN("1"),
   MODERATOR("2"),
-  ADV_USERS("3"),
+  REGISTERED_USERS("3"),
   LAST_LOGIN("US"),
   EMAIL("email"),
   USERNAME("username"),
