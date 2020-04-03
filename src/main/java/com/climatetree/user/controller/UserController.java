@@ -53,13 +53,16 @@ public class UserController {
 	private JwtTokenUtil jwtTokenUtil;
 
 	@Autowired
-	JwtUserDetailsService jwtService;
+	private JwtUserDetailsService jwtService;
 
 	public UserController() {
 	}
 
-	public UserController(UserService service) {
+	public UserController(UserService service, JwtUserDetailsService jwtService, JwtTokenUtil jwtTokenUtil, RoleUpdateRequestService reqService) {
 		this.userService = service;
+		this.jwtService = jwtService;
+		this.jwtTokenUtil = jwtTokenUtil;
+		this.reqService =reqService;
 	}
 
 	/**
@@ -74,6 +77,7 @@ public class UserController {
 		try {
 			Execution<User> res = userService.findAllUsers();
 			resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
+			resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
 		} catch (Exception e) {
 			throw new InternalException(e.getMessage());
 		}
@@ -201,7 +205,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/{userId}/{roleId}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateUser(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId,
-			@PathVariable Integer roleId) throws UnsupportedEncodingException {
+										@PathVariable Integer roleId) throws UnsupportedEncodingException {
 
 		final User loggedUser = jwtService.loadUserByUsername(authenticationRequest.getUsername(),
 				authenticationRequest.getEmail());
@@ -223,6 +227,13 @@ public class UserController {
 		return new ResponseEntity(HttpStatus.UNAUTHORIZED);
 	}
 
+	/**
+	 * Method to black-list a given user (based on it's userid)
+	 * @param authenticationRequest JwtRequest
+	 * @param userId the id of the user to delete
+	 * @return a HTTP response (ok, user not found or not authorized)
+	 * @throws UnsupportedEncodingException
+	 */
 	@RequestMapping(value = "blacklist/{userId}", method = RequestMethod.PUT)
 	public ResponseEntity<?> blacklistUser(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId)
 			throws UnsupportedEncodingException {
@@ -248,7 +259,7 @@ public class UserController {
 
 	@RequestMapping(value = "/request_role_change/{userId}/{roleId}", method = RequestMethod.POST)
 	public ResponseEntity<?> requestRoleUpdate(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId,
-			@PathVariable Integer roleId) {
+											   @PathVariable Integer roleId) {
 		Execution<?> res = reqService.saveRoleUpdateRequest(userId, roleId);
 		if (res.getResult().equals(ResultEnum.FORBIDDEN)) {
 			return new ResponseEntity(HttpStatus.FORBIDDEN);
