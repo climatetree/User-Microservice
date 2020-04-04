@@ -58,6 +58,12 @@ public class UserController {
 	public UserController() {
 	}
 
+	public UserController(UserService service, JwtUserDetailsService jwtService, JwtTokenUtil jwtTokenUtil, RoleUpdateRequestService reqService) {
+		this.userService = service;
+		this.jwtService = jwtService;
+		this.jwtTokenUtil = jwtTokenUtil;
+		this.reqService =reqService;
+	}
 	/**
 	 * Instantiates a new User controller.
 	 *
