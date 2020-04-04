@@ -6,6 +6,17 @@ public class JwtRequest implements Serializable {
 
   private String username;
   private String email;
+  private Integer roleId;
+
+  public Integer getRoleId() {
+    return roleId;
+  }
+
+  public void setRoleId(Integer roleId) {
+    this.roleId = roleId;
+  }
+
+
 
   //Important for JSON parsing
   public JwtRequest()
@@ -13,9 +24,10 @@ public class JwtRequest implements Serializable {
 
   }
 
-  public JwtRequest(String username, String email) {
+  public JwtRequest(String username, String email,Integer roleId) {
     this.setUsername(username);
     this.setEmail(email);
+    this.setRoleId(roleId);
   }
 
   public String getUsername() {

@@ -35,7 +35,7 @@ public class User {
 
 	private Boolean blacklisted;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "roleid")
 	private Role role;
 
