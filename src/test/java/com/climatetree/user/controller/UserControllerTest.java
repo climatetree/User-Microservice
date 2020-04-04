@@ -1,4 +1,4 @@
-/*
+
 package com.climatetree.user.controller;
 
 import static org.junit.Assert.assertEquals;
@@ -40,7 +40,8 @@ import com.climatetree.user.service.UserService;
 @RunWith(SpringRunner.class)
 public class UserControllerTest {
 
-  private MockMvc mockMvc;
+}
+ /* private MockMvc mockMvc;
 
 
 
