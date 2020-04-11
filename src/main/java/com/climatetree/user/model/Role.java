@@ -22,7 +22,7 @@ public class Role {
   private int roleId;
   private String name;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "role")
   @JsonIgnore
   private Set<User> users;
 

@@ -35,8 +35,8 @@ import com.climatetree.user.service.RoleUpdateRequestService;
 import com.climatetree.user.service.UserService;
 
 /**
- * The UserController translates interaction with the front-end user interface
- * into actions to be performed by our "User" model.
+ * The UserController translates interaction with the front-end user interface into actions to be
+ * performed by our "User" model.
  */
 @RestController
 @RequestMapping("/user")
@@ -64,42 +64,28 @@ public class UserController {
 		this.jwtTokenUtil = jwtTokenUtil;
 		this.reqService =reqService;
 	}
-
+	/**
+	 * Instantiates a new User controller.
+	 *
+	 * @param service the service
+	 */
 	public UserController(UserService service) {
 		this.userService = service;
 	}
 
 	/**
-	 * Find all users map.
-	 *
-	 * @return the map
-	 */
-	@GetMapping("")
-	@ResponseBody
-	public Map<String, Object> getUsers() throws InternalException {
-		Map<String, Object> resultMap = new HashMap<>();
-		try {
-			Execution<User> res = userService.findAllUsers();
-			resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
-		} catch (Exception e) {
-			throw new InternalException(e.getMessage());
-		}
-
-		return resultMap;
-	}
-
-	/**
 	 * Find users by name map.
 	 *
-	 * @param name the name
+	 * @param authenticationRequest the authentication request
 	 * @return the map
+	 * @throws InternalException the internal exception
 	 */
 	@GetMapping("/searchname")
 	@ResponseBody
-	public Map<String, Object> getUsersByName(String name) throws InternalException {
+	public Map<String, Object> getUsersByName(@RequestBody JwtRequest authenticationRequest) throws InternalException {
 		Map<String, Object> resultMap = new HashMap<>();
 		try {
-			Execution<User> res = userService.getUsersByName(name);
+			Execution<User> res = userService.getUsersByName(authenticationRequest.getUsername());
 			resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
 			resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
 		} catch (Exception e) {
@@ -111,17 +97,41 @@ public class UserController {
 	/**
 	 * Get all users based on their roles
 	 *
-	 * @param roleid the roleid
-	 * @return map
+	 * @param authenticationRequest the authentication request
+	 * @return map users by role id
+	 * @throws InternalException the internal exception
 	 */
 	@GetMapping("/searchrole")
 	@ResponseBody
-	public Map<String, Object> getUsersByRoleId(Integer roleid) throws InternalException {
+	public Map<String, Object> getUsersByRoleId(@RequestBody JwtRequest authenticationRequest) throws InternalException {
 		Map<String, Object> resultMap = new HashMap<>();
 		try {
-			Execution<User> res = userService.getUsersByRoleId(roleid);
+			Execution<User> res = userService.getUsersByRoleId(authenticationRequest.getRoleId());
 			resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
 			resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
+		} catch (Exception e) {
+			throw new InternalException(e.getMessage());
+
+		}
+		return resultMap;
+	}
+
+
+	/**
+	 * Get all users based on their roles
+	 *
+	 * @param authenticationRequest the authentication request
+	 * @return map users by email id
+	 * @throws InternalException the internal exception
+	 */
+	@GetMapping("/searchemail")
+	@ResponseBody
+	public Map<String, Object> getUsersByEmailId(@RequestBody JwtRequest authenticationRequest) throws InternalException {
+		Map<String, Object> resultMap = new HashMap<>();
+		try {
+			Execution<User> res = userService.getUserByEmail(authenticationRequest.getEmail());
+			resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
+			resultMap.put(Constants.USER.getStatusCode(), res.getObject());
 		} catch (Exception e) {
 			throw new InternalException(e.getMessage());
 
@@ -133,7 +143,8 @@ public class UserController {
 	 * add a new user
 	 *
 	 * @param newUser the new user
-	 * @return map
+	 * @return map map
+	 * @throws InternalException the internal exception
 	 */
 	@PostMapping("/addUser")
 	@ResponseBody
@@ -154,6 +165,7 @@ public class UserController {
 	 * find all users that has been flagged (true) --> to moderate
 	 *
 	 * @return a list of user that has been been flagged
+	 * @throws InternalException the internal exception
 	 */
 	@GetMapping("/flagged_users")
 	public Map<String, Object> getBlacklistedUsers() throws InternalException {
@@ -167,6 +179,9 @@ public class UserController {
 		return resultMap;
 	}
 
+	/**
+	 * Sets roles.
+	 */
 	@RequestMapping(value = "/setup_roles", method = RequestMethod.POST)
 	public void setupRoles() {
 		userService.setupRoles();
@@ -176,18 +191,18 @@ public class UserController {
 	 * delete a user
 	 *
 	 * @param userId the user id
-	 * @return map
+	 * @param req    the req
+	 * @return map response entity
+	 * @throws UnsupportedEncodingException the unsupported encoding exception
 	 */
 	@RequestMapping(value = "/{userId}", method = RequestMethod.DELETE)
-	public ResponseEntity<?> deleteUser(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId)
+	public ResponseEntity<?> deleteUser(@PathVariable Long userId, HttpServletRequest req)
 			throws UnsupportedEncodingException {
-
-		final User loggedUser = jwtService.loadUserByUsername(authenticationRequest.getUsername(),
-				authenticationRequest.getEmail());
+		String token = req.getHeader("Authorization").substring(7);
+		User loggedUser = jwtTokenUtil.getUserFromToken(token);
 		if (loggedUser.getUserId().equals(userId)) {
 			return new ResponseEntity(HttpStatus.UNAUTHORIZED);
 		}
-		final String token = jwtTokenUtil.generateToken(loggedUser);
 		Role role = jwtTokenUtil.getRoleFromToken(token);
 		if (role != null && role.getName().equals(Constants.ADMIN.name())) {
 			Execution<User> res = userService.deleteUser(userId);
@@ -203,19 +218,21 @@ public class UserController {
 	/**
 	 * Update user role map.
 	 *
-	 * @param request the request
+	 * @param req    the req
+	 * @param userId                the user id
+	 * @param roleId                the role id
 	 * @return the map
+	 * @throws UnsupportedEncodingException the unsupported encoding exception
 	 */
 	@RequestMapping(value = "/{userId}/{roleId}", method = RequestMethod.PUT)
-	public ResponseEntity<?> updateUser(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId,
-			@PathVariable Integer roleId) throws UnsupportedEncodingException {
+	public ResponseEntity<?> updateUser(@PathVariable Long userId,
+			@PathVariable Integer roleId,HttpServletRequest req) throws UnsupportedEncodingException {
 
-		final User loggedUser = jwtService.loadUserByUsername(authenticationRequest.getUsername(),
-				authenticationRequest.getEmail());
+		String token = req.getHeader("Authorization").substring(7);
+		User loggedUser = jwtTokenUtil.getUserFromToken(token);
 		if (loggedUser.getUserId().equals(userId)) {
 			return new ResponseEntity(HttpStatus.UNAUTHORIZED);
 		}
-		final String token = jwtTokenUtil.generateToken(loggedUser);
 		Role role = jwtTokenUtil.getRoleFromToken(token);
 		if (role != null && role.getName().equals(Constants.ADMIN.name())) {
 			Execution<User> res = userService.updateUser(userId, roleId);
@@ -230,16 +247,23 @@ public class UserController {
 		return new ResponseEntity(HttpStatus.UNAUTHORIZED);
 	}
 
+	/**
+	 * Blacklist user response entity.
+	 *
+	 * @param req    the req
+	 * @param userId                the user id
+	 * @return the response entity
+	 * @throws UnsupportedEncodingException the unsupported encoding exception
+	 */
 	@RequestMapping(value = "blacklist/{userId}", method = RequestMethod.PUT)
-	public ResponseEntity<?> blacklistUser(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId)
+	public ResponseEntity<?> blacklistUser( @PathVariable Long userId,HttpServletRequest req)
 			throws UnsupportedEncodingException {
 
-		final User loggedUser = jwtService.loadUserByUsername(authenticationRequest.getUsername(),
-				authenticationRequest.getEmail());
+		String token = req.getHeader("Authorization").substring(7);
+		User loggedUser = jwtTokenUtil.getUserFromToken(token);
 		if (loggedUser.getUserId().equals(userId)) {
 			return new ResponseEntity(HttpStatus.UNAUTHORIZED);
 		}
-		final String token = jwtTokenUtil.generateToken(loggedUser);
 		Role role = jwtTokenUtil.getRoleFromToken(token);
 		if (role != null && (role.getName().equals(Constants.ADMIN.name())
 				|| role.getName().equals(Constants.MODERATOR.name()))) {
@@ -253,8 +277,48 @@ public class UserController {
 		return new ResponseEntity(HttpStatus.UNAUTHORIZED);
 	}
 
+	/**
+	 * UnBlacklist user response entity.
+	 *
+	 * @param req    the req
+	 * @param userId                the user id
+	 * @return the response entity
+	 * @throws UnsupportedEncodingException the unsupported encoding exception
+	 */
+	@RequestMapping(value = "unblacklist/{userId}", method = RequestMethod.PUT)
+	public ResponseEntity<?> unblacklistUser( @PathVariable Long userId,HttpServletRequest req)
+			throws UnsupportedEncodingException {
+		String token = req.getHeader("Authorization").substring(7);
+		User loggedUser = jwtTokenUtil.getUserFromToken(token);
+		if (loggedUser.getUserId().equals(userId)) {
+			return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+		}
+		Role role = jwtTokenUtil.getRoleFromToken(token);
+		if (role != null && (role.getName().equals(Constants.ADMIN.name())
+				|| role.getName().equals(Constants.MODERATOR.name()))) {
+			Execution<User> res = userService.unblacklistUser(userId);
+			if (res.getResult().equals(ResultEnum.DATABASE_ERROR)) {
+				return new ResponseEntity(HttpStatus.NOT_FOUND);
+			} else {
+				return new ResponseEntity(HttpStatus.OK);
+			}
+		}
+		return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+	}
+
+
+
+
+	/**
+	 * Request role update response entity.
+	 *
+	 *
+	 * @param userId                the user id
+	 * @param roleId                the role id
+	 * @return the response entity
+	 */
 	@RequestMapping(value = "/request_role_change/{userId}/{roleId}", method = RequestMethod.POST)
-	public ResponseEntity<?> requestRoleUpdate(@RequestBody JwtRequest authenticationRequest, @PathVariable Long userId,
+	public ResponseEntity<?> requestRoleUpdate(@PathVariable Long userId,
 			@PathVariable Integer roleId) {
 		Execution<?> res = reqService.saveRoleUpdateRequest(userId, roleId);
 		if (res.getResult().equals(ResultEnum.FORBIDDEN)) {
@@ -264,13 +328,18 @@ public class UserController {
 		}
 	}
 
+	/**
+	 * Gets all role update requests.
+	 *
+	 * @param req    the req
+	 * @return the all role update requests
+	 * @throws UnsupportedEncodingException the unsupported encoding exception
+	 */
 	@RequestMapping(value = "/get_all_role_update_requests", method = RequestMethod.GET)
-	public Map<String, Object> getAllRoleUpdateRequests(@RequestBody JwtRequest authenticationRequest)
+	public Map<String, Object> getAllRoleUpdateRequests(HttpServletRequest req)
 			throws UnsupportedEncodingException {
 		Map<String, Object> resultMap = new HashMap<>();
-		final User loggedUser = jwtService.loadUserByUsername(authenticationRequest.getUsername(),
-				authenticationRequest.getEmail());
-		final String token = jwtTokenUtil.generateToken(loggedUser);
+		String token = req.getHeader("Authorization").substring(7);
 		Role role = jwtTokenUtil.getRoleFromToken(token);
 		if (role != null && role.getName().equals(Constants.ADMIN.name())) {
 			Execution<?> res = reqService.getAllRoleUpdateRequests();
@@ -278,5 +347,4 @@ public class UserController {
 		}
 		return resultMap;
 	}
-
 }
