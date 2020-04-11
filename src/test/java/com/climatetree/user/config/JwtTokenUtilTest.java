@@ -46,10 +46,6 @@ public class JwtTokenUtilTest {
     @MockBean
     UserDao userDao;
 
-    @BeforeEach
-    void setUp() {
-//        util = new JwtTokenUtil();
-    }
 
     @Test
     void getUsernameFromToken() {

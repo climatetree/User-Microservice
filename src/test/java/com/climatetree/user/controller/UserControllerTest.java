@@ -52,7 +52,7 @@ public class UserControllerTest {
     private RoleUpdateRequestDao mockRoleUpdateRequestDao = mock(RoleUpdateRequestDao.class);
 
     private UserService mockUserService = new UserService(mockUserDao);
-    private UserController userController = new UserController(mockUserService, mockJwtUserDetailService, mockJwtTokenUtil,
+    private UserControllerV1 userController = new UserControllerV1(mockUserService, mockJwtUserDetailService, mockJwtTokenUtil,
             mockRoleUpdateRequestService);
 
     @Before
