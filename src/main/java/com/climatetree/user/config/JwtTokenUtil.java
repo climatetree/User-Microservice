@@ -1,5 +1,6 @@
 package com.climatetree.user.config;
 
+import com.climatetree.user.dao.UserDao;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
@@ -35,13 +36,16 @@ public class JwtTokenUtil implements Serializable {
 	@Autowired
 	RoleDao roleDao;
 
+	@Autowired
+	UserDao userDao;
+
 	// retrieve username from jwt token
 	public String getUsernameFromToken(String token) throws UnsupportedEncodingException {
 		return getClaimFromToken(token, Claims::getSubject);
 
 	}
 
-	// retrieve username from jwt token
+	// retrieve role from jwt token
 	public Role getRoleFromToken(String token) throws UnsupportedEncodingException {
 		try {
 			Jws<Claims> claims = Jwts.parser().setSigningKey(secret.getBytes(StandardCharsets.UTF_8))
@@ -51,8 +55,20 @@ public class JwtTokenUtil implements Serializable {
 		} catch (ExpiredJwtException e) {
 			return null;
 		}
-
 	}
+		// retrieve userid from jwt token
+		public User getUserFromToken(String token) throws UnsupportedEncodingException {
+			try {
+				Jws<Claims> claims = Jwts.parser().setSigningKey(secret.getBytes(StandardCharsets.UTF_8))
+						.parseClaimsJws(token);
+				Claims s = claims.getBody();
+				return userDao.findByUserId(Long.parseLong(s.get("userId").toString()));
+			} catch (ExpiredJwtException e) {
+				return null;
+			}
+
+
+		}
 
 	// retrieve expiration date from jwt token
 	public Date getExpirationDateFromToken(String token) throws UnsupportedEncodingException {

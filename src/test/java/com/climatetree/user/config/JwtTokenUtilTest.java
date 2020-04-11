@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.climatetree.user.dao.RoleDao;
+import com.climatetree.user.dao.UserDao;
 import com.climatetree.user.enums.Constants;
 import com.climatetree.user.model.Role;
 import com.climatetree.user.model.User;
@@ -40,7 +41,10 @@ public class JwtTokenUtilTest {
     private final String secret = "climatetree";
     
     @MockBean
-    RoleDao dao;
+    RoleDao roleDao;
+    
+    @MockBean
+    UserDao userDao;
 
     @BeforeEach
     void setUp() {
