@@ -70,16 +70,15 @@ public class UserControllerV1 {
 	/**
 	 * Find users by name map.
 	 *
-	 * @param authenticationRequest the authentication request
+	 * @param searchName the authentication request
 	 * @return the map
 	 * @throws InternalException the internal exception
 	 */
-	@GetMapping("/searchname")
-	@ResponseBody
-	public Map<String, Object> getUsersByName(@RequestBody JwtRequest authenticationRequest) throws InternalException {
+	@RequestMapping(value = "/searchname/{searchName}", method = RequestMethod.GET)
+	public Map<String, Object> getUsersByName(@PathVariable String searchName) throws InternalException {
 		Map<String, Object> resultMap = new HashMap<>();
 		try {
-			Execution<User> res = userService.getUsersByName(authenticationRequest.getUsername());
+			Execution<User> res = userService.getUsersByName(searchName);
 			resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
 			resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
 		} catch (Exception e) {
@@ -91,16 +90,15 @@ public class UserControllerV1 {
 	/**
 	 * Get all users based on their roles
 	 *
-	 * @param authenticationRequest the authentication request
+	 * @param roleId the authentication request
 	 * @return map users by role id
 	 * @throws InternalException the internal exception
 	 */
-	@GetMapping("/searchrole")
-	@ResponseBody
-	public Map<String, Object> getUsersByRoleId(@RequestBody JwtRequest authenticationRequest) throws InternalException {
+	@RequestMapping(value = "/searchrole/{roleId}", method = RequestMethod.GET)
+	public Map<String, Object> getUsersByRoleId(@PathVariable Integer roleId) throws InternalException {
 		Map<String, Object> resultMap = new HashMap<>();
 		try {
-			Execution<User> res = userService.getUsersByRoleId(authenticationRequest.getRoleId());
+			Execution<User> res = userService.getUsersByRoleId(roleId);
 			resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
 			resultMap.put(Constants.USER.getStatusCode(), res.getObjects());
 		} catch (Exception e) {
@@ -114,17 +112,22 @@ public class UserControllerV1 {
 	/**
 	 * Get all users based on their roles
 	 *
-	 * @param authenticationRequest the authentication request
+	 * @param searchEmail the authentication request
 	 * @return map users by email id
 	 * @throws InternalException the internal exception
 	 */
-	@GetMapping("/searchemail")
-	@ResponseBody
-	public Map<String, Object> getUsersByEmailId(@RequestBody JwtRequest authenticationRequest) throws InternalException {
+	@RequestMapping(value = "/searchemail/{searchEmail}", method = RequestMethod.GET)
+	public Map<String, Object> getUsersByEmailId(@PathVariable String searchEmail) throws InternalException {
 		Map<String, Object> resultMap = new HashMap<>();
 		try {
-			Execution<User> res = userService.getUserByEmail(authenticationRequest.getEmail());
-			resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
+			Execution<User> res = userService.getUserByEmail(searchEmail);
+			if (res.getResult().equals(ResultEnum.DATABASE_ERROR)) {
+				resultMap.put(HttpStatus.NOT_FOUND.toString(), res.getResult());
+			}
+			else {
+				resultMap.put(Constants.SUCCESS.getStatusCode(), res.getResult());
+
+			}
 			resultMap.put(Constants.USER.getStatusCode(), res.getObject());
 		} catch (Exception e) {
 			throw new InternalException(e.getMessage());
