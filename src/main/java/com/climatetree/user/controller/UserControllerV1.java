@@ -1,46 +1,39 @@
 package com.climatetree.user.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.climatetree.user.config.JwtTokenUtil;
 import com.climatetree.user.dto.Execution;
 import com.climatetree.user.enums.Constants;
 import com.climatetree.user.enums.ResultEnum;
 import com.climatetree.user.exception.InternalException;
 import com.climatetree.user.model.JwtRequest;
-import com.climatetree.user.model.JwtResponse;
 import com.climatetree.user.model.Role;
-import com.climatetree.user.model.RoleUpdateRequest;
 import com.climatetree.user.model.User;
 import com.climatetree.user.service.JwtUserDetailsService;
 import com.climatetree.user.service.RoleUpdateRequestService;
 import com.climatetree.user.service.UserService;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * The UserController translates interaction with the front-end user interface into actions to be
  * performed by our "User" model.
  */
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("v1/user")
+public class UserControllerV1 {
 
 	// The userService component is the bridge between the controller and the DAO
 	@Autowired
@@ -53,12 +46,13 @@ public class UserController {
 	private JwtTokenUtil jwtTokenUtil;
 
 	@Autowired
-	JwtUserDetailsService jwtService;
+  JwtUserDetailsService jwtService;
 
-	public UserController() {
+	public UserControllerV1() {
 	}
 
-	public UserController(UserService service, JwtUserDetailsService jwtService, JwtTokenUtil jwtTokenUtil, RoleUpdateRequestService reqService) {
+	public UserControllerV1(
+      UserService service, JwtUserDetailsService jwtService, JwtTokenUtil jwtTokenUtil, RoleUpdateRequestService reqService) {
 		this.userService = service;
 		this.jwtService = jwtService;
 		this.jwtTokenUtil = jwtTokenUtil;
@@ -69,7 +63,7 @@ public class UserController {
 	 *
 	 * @param service the service
 	 */
-	public UserController(UserService service) {
+	public UserControllerV1(UserService service) {
 		this.userService = service;
 	}
 
