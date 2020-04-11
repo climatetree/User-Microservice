@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -44,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     httpSecurity.csrf().disable()
         // dont authenticate this particular request
-        .authorizeRequests().antMatchers( "/user", "/user/**").permitAll().
+        .authorizeRequests().antMatchers( "/v1/user", "/v1/user/**").permitAll().
 
         // all other requests need to be authenticated
             anyRequest().authenticated().and().
