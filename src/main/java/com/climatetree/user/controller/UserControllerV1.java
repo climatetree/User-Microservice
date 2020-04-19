@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
  * performed by our "User" model.
  */
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("v1/user")
 public class UserControllerV1 {
 
